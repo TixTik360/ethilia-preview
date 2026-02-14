@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Ethilia — Pré-inscription</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Pré-inscription à la micro-crèche Ethilia à Rebréchien.">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Cormorant+Garamond:wght@500;600;700&family=Dancing+Script:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Page spécifique */
+    .form-wrapper{
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .info-box{
+      background: rgba(255,255,255,.6);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      margin-bottom: 26px;
+    }
+
+    form{
+      display: grid;
+      gap: 26px;
+    }
+
+    fieldset{
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      background: rgba(255,255,255,.75);
+    }
+
+    legend{
+      padding: 0 10px;
+      font-family: var(--font-serif);
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .form-grid{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .form-group{
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    label{
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    input, textarea, select{
+      font-family: var(--font-sans);
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(0,0,0,.15);
+      font-size: 14px;
+      background: white;
+    }
+
+    textarea{
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    .full{
+      grid-column: 1 / -1;
+    }
+
+    .form-note{
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .form-actions{
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 700px){
+      .form-grid{
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="container header-inner">
+
+    <a href="index.html" class="logo">
+      <img src="assets/images/logo.svg" alt="Ethilia">
+    </a>
+
+    <nav class="main-nav">
+      <a href="micro-creche.html">La micro-crèche</a>
+      <a href="projet-pedagogique.html">Projet pédagogique</a>
+      <a href="equipe.html">L’équipe</a>
+      <a href="infos-pratiques.html">Infos pratiques</a>
+      <a href="contact.html" class="btn-primary">Contact</a>
+    </nav>
+
+    <a href="pre-inscription.html" class="btn-primary btn-preinscription">
+      Pré-inscription
+    </a>
+
+    <div class="header-tagline h-script">
+      Ethilia — Là où grandir commence
+    </div>
+
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero hero-centered">
+  <div class="container center">
+
+    <h1 class="h-script hero-title">
+      Pré-inscription
+    </h1>
+
+    <p class="hero-sub text" style="max-width:62ch;">
+      Cette pré-inscription nous permet de mieux connaître votre situation
+      et vos besoins.  
+      Elle ne vaut pas inscription définitive.
+    </p>
+  </div>
+</section>
+
+<!-- FORMULAIRE -->
+<section class="section">
+  <div class="container form-wrapper">
+
+    <!-- INFO -->
+    <div class="info-box">
+      <p class="text">
+        La pré-inscription ne garantit pas une place immédiate.
+        Elle permet d’étudier les demandes en cohérence avec l’âge des enfants,
+        les disponibilités et le projet de la micro-crèche.
+      </p>
+    </div>
+
+    <form action="#" method="post">
+
+      <!-- FAMILLE -->
+      <fieldset>
+        <legend>Informations famille</legend>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="parent1">Nom et prénom</label>
+            <input type="text" id="parent1" name="parent1" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Adresse email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Téléphone</label>
+            <input type="tel" id="phone" name="phone">
+          </div>
+
+          <div class="form-group">
+            <label for="commune">Commune de résidence</label>
+            <input type="text" id="commune" name="commune">
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- ENFANT -->
+      <fieldset>
+        <legend>Informations enfant</legend>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="enfant">Prénom de l’enfant</label>
+            <input type="text" id="enfant" name="enfant">
+          </div>
+
+          <div class="form-group">
+            <label for="naissance">Date de naissance (ou prévue)</label>
+            <input type="date" id="naissance" name="naissance">
+          </div>
+
+          <div class="form-group">
+            <label for="debut">Date d’accueil souhaitée</label>
+            <input type="date" id="debut" name="debut">
+          </div>
+
+          <div class="form-group">
+            <label for="temps">Rythme d’accueil souhaité</label>
+            <select id="temps" name="temps">
+              <option value="">—</option>
+              <option>Un jour par semaine</option>
+              <option>Deux jours par semaine</option>
+              <option>Trois jours par semaine</option>
+              <option>Quatre jours par semaine</option>
+              <option>Cinq jours par semaine</option>
+            </select>
+          </div>
+
+          <div class="form-group full">
+            <label for="message">Message / informations complémentaires</label>
+            <textarea id="message" name="message"
+              placeholder="Contraintes horaires, situation particulière, questions…"></textarea>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- NOTE -->
+      <p class="form-note">
+        Les informations transmises sont utilisées uniquement dans le cadre de la
+        gestion des demandes de pré-inscription et ne sont jamais transmises à des tiers.
+      </p>
+
+      <!-- ACTION -->
+      <div class="form-actions">
+        <button type="submit" class="btn-primary">
+          Envoyer la pré-inscription
+        </button>
+      </div>
+
+    </form>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section section-contact">
+  <div class="container center">
+    <h2 class="h-script">Une question ?</h2>
+
+    <p class="text contact-intro">
+      N’hésitez pas à nous contacter si vous avez besoin d’échanger
+      avant ou après votre pré-inscription.
+    </p>
+
+    <div class="contact-infos">
+      <p class="contact-item text">
+        06&nbsp;00&nbsp;00&nbsp;00&nbsp;00
+        <br>
+        contact@ethilia.fr
+        <br>
+        Rebréchien (45)
+      </p>
+    </div>
+
+    <a href="contact.html" class="btn-secondary">
+      Nous contacter
+    </a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+
+    <p class="footer-copy text">
+      © Ethilia
+    </p>
+
+    <nav class="footer-legal">
+<a href="mentions-legales.html" target="_blank" rel="noopener">
+  Mentions légales
+</a>
+
+      <span>·</span>
+<a href="politique-confidentialite.html" target="_blank" rel="noopener">
+  Confidentialité
+</a>
+
+      <span>·</span>
+<a href="cookies.html" target="_blank" rel="noopener">
+  Cookies
+</a>
+
+    </nav>
+
+  </div>
+</footer>
+
+</body>
+</html>

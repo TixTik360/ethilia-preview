@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Ethilia — Contact</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Contactez la micro-crèche Ethilia à Rebréchien : questions, visite, disponibilité, pré-inscription.">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Cormorant+Garamond:wght@500;600;700&family=Dancing+Script:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    html{ scroll-behavior: smooth; }
+    [id]{ scroll-margin-top: 160px; }
+
+    /* Wrapper */
+    .contact-wrapper{
+      width: min(980px, 100%);
+      margin: 0 auto;
+    }
+
+    /* Grille contact (form + infos) */
+    .contact-grid{
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 22px;
+      align-items: start;
+      margin-top: 18px;
+    }
+
+    .panel{
+      background: rgba(255,255,255,.75);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+
+    /* Form */
+    form{
+      display: grid;
+      gap: 16px;
+    }
+    .form-grid{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    .form-group{
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    label{
+      font-size: 14px;
+      color: var(--text);
+    }
+    input, textarea, select{
+      font-family: var(--font-sans);
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(0,0,0,.15);
+      font-size: 14px;
+      background: #fff;
+    }
+    textarea{
+      resize: vertical;
+      min-height: 130px;
+    }
+    .full{ grid-column: 1 / -1; }
+
+    .form-note{
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin: 6px 0 0;
+    }
+
+    .actions{
+      text-align: center;
+      margin-top: 6px;
+    }
+
+    /* Cartes infos */
+    .info-cards{
+      display: grid;
+      gap: 14px;
+    }
+    .info-card{
+      background: rgba(255,255,255,.65);
+      border: 1px solid rgba(0,0,0,.04);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 14px 32px rgba(0,0,0,.06);
+      padding: 18px;
+    }
+    .info-card h3{
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+    .info-card p{
+      margin: 0;
+      line-height: 1.75;
+    }
+
+    /* Map placeholder (tu remplaceras par embed quand tu veux) */
+    .map{
+      margin-top: 14px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.65);
+      min-height: 240px;
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .contact-grid{
+        grid-template-columns: 1fr;
+      }
+      .form-grid{
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="container header-inner">
+
+    <a href="index.html" class="logo">
+      <img src="assets/images/logo.svg" alt="Ethilia">
+    </a>
+
+    <nav class="main-nav">
+      <a href="micro-creche.html">La micro-crèche</a>
+      <a href="projet-pedagogique.html">Projet pédagogique</a>
+      <a href="equipe.html">L’équipe</a>
+      <a href="infos-pratiques.html">Infos pratiques</a>
+      <a href="contact.html" class="btn-primary">Contact</a>
+    </nav>
+
+    <a href="pre-inscription.html" class="btn-primary btn-preinscription">
+      Pré-inscription
+    </a>
+
+    <div class="header-tagline h-script">
+      Ethilia — Là où grandir commence
+    </div>
+
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero hero-centered" id="top">
+  <div class="container center">
+    <h1 class="h-script hero-title">Contact</h1>
+
+    <p class="hero-sub text" style="max-width:62ch;">
+      Une question, une demande de visite, une précision avant pré-inscription ?
+      Écrivez-nous : on vous répond simplement et rapidement.
+    </p>
+  </div>
+</section>
+
+<!-- CONTENU -->
+<section class="section" id="message">
+  <div class="container contact-wrapper">
+
+    <div class="contact-grid">
+
+      <!-- FORM -->
+      <div class="panel">
+        <h2 class="h-script">Nous écrire</h2>
+        <p class="text" style="max-width:70ch;">
+          Laissez-nous vos coordonnées et votre besoin : nous vous recontactons dès que possible.
+        </p>
+
+        <form action="#" method="post">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="name">Nom et prénom</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Téléphone</label>
+              <input type="tel" id="phone" name="phone" placeholder="Optionnel">
+            </div>
+
+            <div class="form-group">
+              <label for="topic">Sujet</label>
+              <select id="topic" name="topic">
+                <option value="">—</option>
+                <option>Demande d’information</option>
+                <option>Demande de visite</option>
+                <option>Disponibilités / place</option>
+                <option>Pré-inscription</option>
+                <option>Autre</option>
+              </select>
+            </div>
+
+            <div class="form-group full">
+              <label for="msg">Votre message</label>
+              <textarea id="msg" name="msg" required
+                placeholder="Ex : âge de l’enfant, date souhaitée, rythme d’accueil, questions…"></textarea>
+            </div>
+          </div>
+
+          <p class="form-note">
+            Les informations transmises sont utilisées uniquement pour répondre à votre demande
+            et ne sont jamais transmises à des tiers.
+          </p>
+
+          <div class="actions">
+            <button type="submit" class="btn-primary">Envoyer</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- INFOS -->
+      <aside class="panel">
+        <h2 class="h-script">Nous joindre</h2>
+
+        <div class="info-cards">
+          <div class="info-card">
+            <h3 class="h-title">Coordonnées</h3>
+            <p class="text">
+              06&nbsp;00&nbsp;00&nbsp;00&nbsp;00<br>
+              contact@ethilia.fr<br>
+              Rebréchien (45)
+            </p>
+          </div>
+
+          <div class="info-card">
+            <h3 class="h-title">Horaires</h3>
+            <p class="text">
+              Du lundi au vendredi<br>
+              8h – 18h30 <span style="opacity:.7;">(à ajuster si besoin)</span>
+            </p>
+          </div>
+
+          <div class="info-card">
+            <h3 class="h-title">Pré-inscription</h3>
+            <p class="text">
+              La pré-inscription permet de mieux connaître votre situation.
+              Elle ne vaut pas inscription définitive.
+            </p>
+            <div style="margin-top:12px;">
+              <a href="pre-inscription.html" class="btn-secondary">Accéder au formulaire</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="map" aria-label="Carte">
+          Carte à intégrer<br>
+          (Google Maps / OpenStreetMap)
+        </div>
+
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA bas -->
+<section class="section section-contact">
+  <div class="container center">
+    <h2 class="h-script">Besoin d’une réponse rapide ?</h2>
+
+    <p class="text contact-intro">
+      Un appel suffit parfois. On vous répond dès que possible.
+    </p>
+
+    <div class="contact-infos">
+      <p class="contact-item text">
+        06&nbsp;00&nbsp;00&nbsp;00&nbsp;00
+        <br>
+        contact@ethilia.fr
+        <br>
+        Rebréchien (45)
+      </p>
+    </div>
+
+    <a href="pre-inscription.html" class="btn-primary">
+      Pré-inscription
+    </a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p class="footer-copy text">© Ethilia</p>
+
+    <nav class="footer-legal">
+ <a href="mentions-legales.html" target="_blank" rel="noopener">
+  Mentions légales
+</a>
+<span>·</span>
+      <a href="politique-confidentialite.html" target="_blank" rel="noopener">
+  Confidentialité
+</a>
+
+      <span>·</span>
+     <a href="cookies.html" target="_blank" rel="noopener">
+  Cookies
+</a>
+
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>

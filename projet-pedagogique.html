@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Ethilia — Projet pédagogique</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Découvrez le projet pédagogique de la micro-crèche Ethilia : respect du rythme, autonomie, environnement préparé, communication bienveillante.">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Cormorant+Garamond:wght@500;600;700&family=Dancing+Script:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    html{ scroll-behavior: smooth; }
+    [id]{ scroll-margin-top: 160px; } /* offset pour header sticky */
+
+    /* HERO ultra-sobre */
+    .page-hero{
+      padding: 76px 0 34px;
+    }
+    .page-hero .container{
+      display: grid;
+      justify-items: center;
+      text-align: center;
+      gap: 14px;
+    }
+    .page-hero .lead{
+      max-width: 70ch;
+      margin: 0 auto;
+      line-height: 1.85;
+    }
+    .page-hero .sublead{
+      max-width: 78ch;
+      margin: 0 auto;
+      color: var(--muted);
+      line-height: 1.85;
+      font-size: 16.5px;
+    }
+
+    /* Liste douce (plus clean que des <ul> brutes) */
+    .bullets{
+      margin: 0;
+      padding-left: 18px;
+      line-height: 1.95;
+      color: var(--muted);
+    }
+    .bullets li{ margin: 6px 0; }
+
+    /* Petit encart “rassurant / note” */
+    .note-box{
+      background: rgba(255,255,255,.65);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 18px 20px;
+      box-shadow: var(--shadow);
+    }
+
+    /* Dock bas (scrolly) */
+    .anchor-dock{
+      position: fixed;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%);
+      z-index: 60;
+
+      display: flex;
+      gap: 8px;
+      padding: 10px;
+
+      background: rgba(251,247,242,.88);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: 0 14px 32px rgba(0,0,0,.10);
+    }
+
+    .anchor-dock a{
+      padding: 10px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      background: rgba(255,255,255,.6);
+      border: 1px solid rgba(0,0,0,.06);
+      white-space: nowrap;
+      color: var(--text);
+    }
+
+    .anchor-dock a:hover{ background: rgba(255,255,255,.95); }
+
+    .anchor-dock a.cta{
+      background: var(--sage-soft);
+      color: rgba(255,255,255,.95);
+      border: 1px solid rgba(0,0,0,.14);
+    }
+    .anchor-dock a.cta:hover{ background: var(--sage-soft-hover); }
+
+    /* Espace bas pour éviter masquage par le dock */
+    body{ padding-bottom: 96px; }
+
+    @media (max-width: 900px){
+      .anchor-dock{
+        width: calc(100% - 24px);
+        justify-content: space-between;
+        bottom: 12px;
+      }
+      .anchor-dock a{
+        flex: 1;
+        text-align: center;
+        padding: 10px 8px;
+        font-size: 12px;
+      }
+      .anchor-dock a.hide-mobile{ display:none; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="container header-inner">
+
+    <a href="index.html" class="logo">
+      <img src="assets/images/logo.svg" alt="Ethilia">
+    </a>
+
+    <nav class="main-nav">
+      <a href="micro-creche.html">La micro-crèche</a>
+      <a href="projet-pedagogique.html">Projet pédagogique</a>
+      <a href="equipe.html">L’équipe</a>
+      <a href="infos-pratiques.html">Infos pratiques</a>
+      <a href="contact.html" class="btn-primary">Contact</a>
+    </nav>
+
+    <a href="pre-inscription.html" class="btn-primary btn-preinscription">
+      Pré-inscription
+    </a>
+
+    <div class="header-tagline h-script">
+      Ethilia — Là où grandir commence
+    </div>
+
+  </div>
+</header>
+
+<!-- HERO (texte only) -->
+<section class="page-hero" id="top">
+  <div class="container">
+    <h1 class="h-script hero-title">Projet pédagogique</h1>
+
+    <p class="text lead">
+      À Ethilia, notre pédagogie vise un objectif simple : permettre à chaque enfant
+      de grandir en sécurité affective, en confiance, et à son rythme.
+    </p>
+
+    <p class="text sublead">
+      Notre quotidien s’inspire d’une approche Montessori (environnement préparé, autonomie accompagnée,
+      observation), tout en restant profondément adapté à la réalité des tout-petits (0–3 ans) et au vécu des familles.
+    </p>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- 1) Vision -->
+<section class="section" id="vision">
+  <div class="container center section-text">
+    <h2 class="h-script">Une pédagogie claire, rassurante et vivante</h2>
+
+    <p class="text" style="max-width: 76ch; margin-left:auto; margin-right:auto;">
+      Le projet pédagogique est un repère : pour l’équipe, pour les enfants, et pour vous.
+      Il rend visibles nos choix du quotidien, et la manière dont nous répondons aux besoins
+      fondamentaux de la petite enfance.
+    </p>
+
+    <div class="cards" style="margin-top:22px;">
+      <article class="card">
+        <h3 class="h-title">Sécurité affective</h3>
+        <p class="text">
+          Une présence adulte stable, des repères, des rituels et une communication constante
+          pour que l’enfant se sente en confiance.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3 class="h-title">Respect du rythme</h3>
+        <p class="text">
+          Sommeil, repas, activités : l’enfant n’est pas “calé sur le groupe”.
+          On s’adapte à lui, sans précipiter ses acquisitions.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3 class="h-title">Autonomie accompagnée</h3>
+        <p class="text">
+          On encourage “faire seul” quand l’enfant est prêt : avec du matériel adapté,
+          du temps, et un adulte qui guide sans faire à sa place.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 2) Grands axes -->
+<section class="section" id="axes">
+  <div class="container section-split">
+    <div class="section-text">
+      <h2 class="h-script">Nos grands axes éducatifs</h2>
+
+      <p class="text">
+        Notre approche vise à soutenir des compétences essentielles pour l’enfant, aujourd’hui et demain :
+        autonomie, estime de soi, respect des autres, et lien à la nature.
+      </p>
+
+      <ul class="bullets text">
+        <li><strong>Autonomie</strong> : encourager l’enfant à expérimenter, recommencer, réussir.</li>
+        <li><strong>Acceptation des différences</strong> : apprendre à vivre ensemble, sans étiquettes.</li>
+        <li><strong>Estime de soi</strong> : valoriser l’effort, pas la performance.</li>
+        <li><strong>Respect de la nature</strong> : découverte du vivant, des saisons, du dehors.</li>
+      </ul>
+
+      <div style="margin-top:16px;" class="note-box">
+        <p class="text" style="margin:0;">
+          Nous privilégions des matériaux plus naturels et durables (bois, qualité, moins de plastique),
+          et un environnement “qui stimule sans surstimuler”.
+        </p>
+      </div>
+    </div>
+
+    <div class="section-visual">
+      <div class="placeholder text">
+        Visuel à venir<br>
+        (photo / illustration “environnement préparé”)
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- 3) Environnement -->
+<section class="section" id="espace">
+  <div class="container">
+    <h2 class="h-script center">Un environnement préparé</h2>
+
+    <p class="text" style="max-width: 78ch; margin: 0 auto; text-align:center;">
+      L’environnement est un “adulte silencieux” : il aide l’enfant à se repérer, à se concentrer,
+      à choisir, et à agir de manière autonome.
+    </p>
+
+    <div class="cards" style="margin-top:22px;">
+      <article class="card">
+        <h3 class="h-title">Sécurisé</h3>
+        <p class="text">
+          Des espaces pensés pour bouger et explorer avec confiance, sans mise en danger.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3 class="h-title">Épuré & esthétique</h3>
+        <p class="text">
+          Moins d’objets, mieux choisis. Pour favoriser l’attention et éviter la surstimulation.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3 class="h-title">En ordre</h3>
+        <p class="text">
+          Chaque chose a une place stable : l’enfant se repère, anticipe, et construit sa sécurité intérieure.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 4) Journée type -->
+<section class="section" id="journee">
+  <div class="container section-split">
+    <div class="section-text">
+      <h2 class="h-script">La journée : des repères, pas une rigidité</h2>
+
+      <p class="text">
+        Les routines structurent la journée et rassurent l’enfant. Elles ne sont pas synonymes de “maniaquerie” :
+        ce sont des repères stables qui diminuent le stress et aident l’enfant à devenir acteur.
+      </p>
+
+      <div class="note-box" style="margin-top:14px;">
+        <p class="text" style="margin:0;">
+          Les temps sont ajustés en fonction du rythme réel des enfants (sommeil, appétit, besoins).
+        </p>
+      </div>
+    </div>
+
+    <div class="section-visual">
+      <div class="placeholder text">
+        Visuel à venir<br>
+        (timeline / pictos routines)
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- 5) Posture pro -->
+<section class="section" id="posture">
+  <div class="container">
+    <h2 class="h-script center">La posture professionnelle</h2>
+
+    <p class="text" style="max-width: 78ch; margin: 0 auto; text-align:center;">
+      Observer avant d’intervenir. Comprendre l’enfant. Ajuster la juste aide.
+      Et surtout : être un exemple calme, clair, cohérent.
+    </p>
+
+    <div class="cards" style="margin-top:22px;">
+      <article class="card">
+        <h3 class="h-title">Observation</h3>
+        <p class="text">
+          Elle permet de doser l’intervention, respecter le rythme, repérer les besoins, et mieux accompagner.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3 class="h-title">Limites sécurisantes</h3>
+        <p class="text">
+          Des règles simples, explicites, constantes : avec bienveillance, sans flou ni “laisser-faire”.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3 class="h-title">Accompagner</h3>
+        <p class="text">
+          Guider vers des activités constructives : langage, motricité, sens, autonomie, socialisation.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 6) Autonomie -->
+<section class="section" id="autonomie">
+  <div class="container section-split">
+    <div class="section-visual">
+      <div class="placeholder text">
+        Visuel à venir<br>
+        (vie pratique / matériel adapté)
+      </div>
+    </div>
+
+    <div class="section-text">
+      <h2 class="h-script">L’autonomie, moteur de confiance</h2>
+
+      <p class="text">
+        Être autonome, ce n’est pas “se débrouiller seul”. C’est pouvoir agir avec un adulte disponible,
+        qui encourage, montre, puis laisse l’enfant faire à sa manière.
+      </p>
+
+      <ul class="bullets text">
+        <li>Développer la confiance en soi par la réussite progressive.</li>
+        <li>Renforcer la persévérance et l’estime de soi.</li>
+        <li>Soutenir la concentration et la motivation.</li>
+        <li>Donner une vraie place à l’enfant dans son quotidien.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- 7) Communication -->
+<section class="section" id="communication">
+  <div class="container">
+    <h2 class="h-script center">Communication bienveillante</h2>
+
+    <p class="text" style="max-width: 78ch; margin: 0 auto; text-align:center;">
+      Les mots construisent l’enfant. Notre objectif : mettre des mots sur les émotions,
+      écouter vraiment, et transmettre des limites claires sans écraser.
+    </p>
+
+    <div class="cards" style="margin-top:22px;">
+      <article class="card">
+        <h3 class="h-title">Accueillir les émotions</h3>
+        <p class="text">
+          Tous les sentiments sont légitimes. On accompagne l’enfant à reconnaître, exprimer et traverser.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3 class="h-title">Parler vrai, parler simple</h3>
+        <p class="text">
+          Un langage adapté, précis, cohérent. On explique et on anticipe les gestes, même aux tout-petits.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3 class="h-title">Aider avant la parole</h3>
+        <p class="text">
+          Selon l’âge, l’équipe peut utiliser des supports comme le langage des signes pour exprimer besoins et émotions.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 8) Éveil -->
+<section class="section" id="eveil">
+  <div class="container section-split">
+    <div class="section-text">
+      <h2 class="h-script">L’éveil : explorer le monde, à son rythme</h2>
+
+      <p class="text">
+        L’éveil, c’est l’ouverture progressive à soi, aux autres et à l’environnement.
+        Nous proposons des expériences concrètes, variées, et adaptées au développement de chacun.
+      </p>
+
+      <ul class="bullets text">
+        <li><strong>Mixité des âges</strong> : apprendre des autres, s’émerveiller, développer l’attention à autrui.</li>
+        <li><strong>Comptines & langage</strong> : rythme, mémoire, vocabulaire, plaisir de répéter.</li>
+        <li><strong>Thèmes & saisons</strong> : partir du concret, observer, manipuler, comprendre les cycles.</li>
+        <li><strong>Jardinage & cuisine</strong> : sensorialité, autonomie, découverte du vivant et des aliments.</li>
+      </ul>
+    </div>
+
+    <div class="section-visual">
+      <div class="placeholder text">
+        Visuel à venir<br>
+        (saisons / cuisine / jardin)
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- 9) Familles -->
+<section class="section" id="familles">
+  <div class="container center section-text">
+    <h2 class="h-script">Avec les familles : confiance et continuité</h2>
+
+    <p class="text" style="max-width: 78ch; margin-left:auto; margin-right:auto;">
+      À Ethilia, on ne “pose” pas un enfant le matin et on le “reprend” le soir.
+      On construit une continuité entre la maison et la crèche.
+    </p>
+
+    <div class="cards" style="margin-top:22px;">
+      <article class="card">
+        <h3 class="h-title">Transmissions</h3>
+        <p class="text">
+          Échanges quotidiens pour relier sommeil, repas, humeur, évolutions, et ajuster ensemble.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3 class="h-title">Temps de rencontre</h3>
+        <p class="text">
+          Ateliers, moments conviviaux, échanges : pour créer du lien et soutenir la parentalité.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3 class="h-title">Écoute et cohérence</h3>
+        <p class="text">
+          Une relation simple, directe, sans jugement — pour avancer dans la même direction.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 10) Inclusion / PAI -->
+<section class="section" id="inclusion">
+  <div class="container section-split">
+    <div class="section-visual">
+      <div class="placeholder text">
+        Visuel à venir<br>
+        (pictos inclusion / accompagnement)
+      </div>
+    </div>
+
+    <div class="section-text">
+      <h2 class="h-script">Inclusion & PAI</h2>
+
+      <p class="text">
+        Ethilia favorise l’intégration des enfants présentant un handicap ou une maladie chronique,
+        lorsque l’état est compatible avec la vie en collectivité.
+      </p>
+
+      <ul class="bullets text">
+        <li>Écoute attentive de la famille et analyse de la situation.</li>
+        <li>Adaptations possibles selon les besoins et la sécurité.</li>
+        <li>Travail avec les professionnels de santé si nécessaire.</li>
+        <li>Mise en place d’un <strong>Projet d’Accueil Individualisé (PAI)</strong> lorsque cela s’impose.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section section-contact" id="cta">
+  <div class="container center">
+    <h2 class="h-script">Envie d’échanger ?</h2>
+
+    <p class="text contact-intro">
+      Une question sur notre projet pédagogique, ou sur l’accueil de votre enfant :
+    </p>
+
+    <div class="contact-infos">
+      <p class="contact-item text">
+        06&nbsp;00&nbsp;00&nbsp;00&nbsp;00
+        <br>
+        contact@ethilia.fr
+        <br>
+        Rebréchien (45)
+      </p>
+    </div>
+
+    <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center;">
+      <a href="contact.html" class="btn-primary">Nous contacter</a>
+    </div>
+
+    <p class="h-script" style="font-size:18px; margin-top:16px;">
+      On vous répond avec plaisir
+    </p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+
+    <p class="footer-copy text">
+      © Ethilia
+    </p>
+
+    <nav class="footer-legal">
+<a href="mentions-legales.html" target="_blank" rel="noopener">
+  Mentions légales
+</a>
+
+      <span>·</span>
+<a href="politique-confidentialite.html" target="_blank" rel="noopener">
+  Confidentialité
+</a>
+
+      <span>·</span>
+<a href="cookies.html" target="_blank" rel="noopener">
+  Cookies
+</a>
+
+    </nav>
+
+  </div>
+</footer>
+
+<!-- DOCK BAS (scrolly) -->
+<nav class="anchor-dock" aria-label="Navigation rapide">
+  <a href="#vision">Vision</a>
+  <a href="#axes">Axes</a>
+  <a href="#espace">Espace</a>
+  <a href="#posture">Posture</a>
+  <a href="#eveil" class="hide-mobile">Éveil</a>
+  <a href="#familles" class="hide-mobile">Familles</a>
+  <a href="#inclusion" class="hide-mobile">PAI</a>
+  <a href="#cta" class="cta">Contacter</a>
+</nav>
+
+</body>
+</html>

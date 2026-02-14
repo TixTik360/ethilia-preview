@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Ethilia — Infos pratiques</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Infos pratiques de la micro-crèche Ethilia : horaires, âges accueillis, fonctionnement, repas, fermetures, ce qu’il faut apporter, tarifs et contact.">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Cormorant+Garamond:wght@500;600;700&family=Dancing+Script:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    html{ scroll-behavior: smooth; }
+    [id]{ scroll-margin-top: 160px; } /* offset pour header sticky */
+
+    /* HERO ultra-sobre (comme projet péda) */
+    .page-hero{
+      padding: 76px 0 34px;
+    }
+    .page-hero .container{
+      display: grid;
+      justify-items: center;
+      text-align: center;
+      gap: 14px;
+    }
+    .page-hero .lead{
+      max-width: 72ch;
+      margin: 0 auto;
+      line-height: 1.85;
+    }
+    .page-hero .sublead{
+      max-width: 78ch;
+      margin: 0 auto;
+      color: var(--muted);
+      line-height: 1.85;
+      font-size: 16.5px;
+    }
+
+    /* KPIs (réutilise la logique de micro-creche.html) */
+    .kpi{
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 10px;
+      width: 100%;
+    }
+    .kpi .card{
+      text-align: center;
+      padding: 18px;
+      background: rgba(255,255,255,.65);
+      border: 1px solid rgba(0,0,0,.04);
+      box-shadow: 0 14px 32px rgba(0,0,0,.06);
+      backdrop-filter: blur(6px);
+    }
+    .kpi .kpi-title{
+      font-size: 13px;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 8px;
+    }
+    .kpi .kpi-value{
+      font-family: var(--font-serif);
+      font-weight: 700;
+      font-size: 22px;
+      color: var(--text);
+      margin: 0 0 6px;
+    }
+    .kpi .kpi-sub{
+      font-size: 14px;
+      line-height: 1.55;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    /* Listes douces */
+    .bullets{
+      margin: 0;
+      padding-left: 18px;
+      line-height: 1.95;
+      color: var(--muted);
+    }
+    .bullets li{ margin: 6px 0; }
+
+    /* Encarts “note” */
+    .note-box{
+      background: rgba(255,255,255,.65);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 18px 20px;
+      box-shadow: var(--shadow);
+    }
+
+    /* Badge petit (ex: “À confirmer”) */
+    .pill{
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.55);
+      box-shadow: 0 10px 24px rgba(0,0,0,.06);
+      font-size: 13px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--sage);
+    }
+    .pill .dot{
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(111,127,107,.55);
+    }
+
+    /* Dock bas (scrolly) */
+    .anchor-dock{
+      position: fixed;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%);
+      z-index: 60;
+
+      display: flex;
+      gap: 8px;
+      padding: 10px;
+
+      background: rgba(251,247,242,.88);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: 0 14px 32px rgba(0,0,0,.10);
+    }
+    .anchor-dock a{
+      padding: 10px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      background: rgba(255,255,255,.6);
+      border: 1px solid rgba(0,0,0,.06);
+      white-space: nowrap;
+      color: var(--text);
+    }
+    .anchor-dock a:hover{ background: rgba(255,255,255,.95); }
+    .anchor-dock a.cta{
+      background: var(--sage-soft);
+      color: rgba(255,255,255,.95);
+      border: 1px solid rgba(0,0,0,.14);
+    }
+    .anchor-dock a.cta:hover{ background: var(--sage-soft-hover); }
+
+    body{ padding-bottom: 96px; }
+
+    @media (max-width: 900px){
+      .kpi{ grid-template-columns: 1fr; }
+
+      .anchor-dock{
+        width: calc(100% - 24px);
+        justify-content: space-between;
+        bottom: 12px;
+      }
+      .anchor-dock a{
+        flex: 1;
+        text-align: center;
+        padding: 10px 8px;
+        font-size: 12px;
+      }
+      .anchor-dock a.hide-mobile{ display:none; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="container header-inner">
+
+    <a href="index.html" class="logo">
+      <img src="assets/images/logo.svg" alt="Ethilia">
+    </a>
+
+    <nav class="main-nav">
+      <a href="micro-creche.html">La micro-crèche</a>
+      <a href="projet-pedagogique.html">Projet pédagogique</a>
+      <a href="equipe.html">L’équipe</a>
+      <a href="infos-pratiques.html">Infos pratiques</a>
+      <a href="contact.html" class="btn-primary">Contact</a>
+    </nav>
+
+    <a href="pre-inscription.html" class="btn-primary btn-preinscription">
+      Pré-inscription
+    </a>
+
+    <div class="header-tagline h-script">
+      Ethilia — Là où grandir commence
+    </div>
+
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="page-hero" id="top">
+  <div class="container">
+    <h1 class="h-script hero-title">Infos pratiques</h1>
+
+    <p class="text lead">
+      Tout ce qu’il faut savoir pour organiser l’accueil de votre enfant chez Ethilia :
+      horaires, fonctionnement, repas, fermetures, et modalités pratiques.
+    </p>
+
+    <p class="text sublead">
+      Si vous ne trouvez pas votre réponse, contactez-nous : on préfère un échange simple plutôt qu’un texte interminable.
+    </p>
+
+    <!-- EN BREF -->
+    <div class="kpi" id="en-bref">
+      <article class="card">
+        <div class="kpi-title text">Âges</div>
+        <p class="kpi-value">10 semaines à 4 ans</p>
+        <p class="kpi-sub text">Du tout petit jusqu’à l’entrée à l’école.</p>
+      </article>
+
+      <article class="card">
+        <div class="kpi-title text">Capacité</div>
+        <p class="kpi-value">12 places</p>
+        <p class="kpi-sub text">Petite taille = accueil plus individualisé.</p>
+      </article>
+
+      <article class="card">
+        <div class="kpi-title text">Horaires</div>
+        <p class="kpi-value">8h – 18h30</p>
+        <p class="kpi-sub text">Du lundi au vendredi.</p>
+      </article>
+
+      <article class="card">
+        <div class="kpi-title text">Lieu</div>
+        <p class="kpi-value">Rebréchien (45)</p>
+        <p class="kpi-sub text">Accès simple pour les familles du secteur.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- FONCTIONNEMENT -->
+<section class="section" id="fonctionnement">
+  <div class="container section-split">
+    <div class="section-text">
+      <h2 class="h-script">Fonctionnement</h2>
+
+      <p class="text">
+        L’accueil est pensé pour être fluide, rassurant et cohérent pour l’enfant comme pour les parents.
+      </p>
+
+      <ul class="bullets text">
+        <li><strong>Période de familiarisation</strong> : progressive, ajustée au besoin de l’enfant.</li>
+        <li><strong>Transmissions</strong> : échanges matin/soir (sommeil, repas, humeur, évolutions).</li>
+        <li><strong>Accueil</strong> : régulier (à la semaine) et/ou adapté selon les disponibilités.</li>
+      </ul>
+
+      <div class="note-box" style="margin-top:16px;">
+        <p class="text" style="margin:0;">
+          Notre priorité : une organisation claire, sans rigidité inutile — et une communication simple avec les familles.
+        </p>
+      </div>
+    </div>
+
+    <div class="section-visual">
+      <div class="placeholder text">
+        Visuel à venir<br>
+        (photo entrée / vestiaire / espace accueil)
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REPAS / COUCHES -->
+<section class="section" id="repas">
+  <div class="container">
+    <h2 class="h-script center">Repas & changes</h2>
+
+    <div class="cards" style="margin-top:22px;">
+      <article class="card">
+        <h3 class="h-title">Repas</h3>
+        <p class="text">
+          Indique ici le fonctionnement final :
+          repas fournis / repas apportés par la famille / prestataire, et la gestion des textures (bébé, mixé, morceaux).
+        </p>
+      </article>
+
+      <article class="card">
+        <h3 class="h-title">Allergies & PAI</h3>
+        <p class="text">
+          Allergies, intolérances, maladie chronique : on en parle en amont.
+          Un <strong>Projet d’Accueil Individualisé (PAI)</strong> peut être mis en place si nécessaire.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3 class="h-title">Couches & changes</h3>
+        <p class="text">
+          Indique si les couches sont fournies ou apportées,
+          et la gestion des produits spécifiques si besoin (peau fragile, prescriptions…).
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- À APPORTER -->
+<section class="section" id="apporter">
+  <div class="container section-split">
+    <div class="section-visual">
+      <div class="placeholder text">
+        Visuel à venir<br>
+        (petit sac / doudou / tenue)
+      </div>
+    </div>
+
+    <div class="section-text">
+      <h2 class="h-script">Ce qu’il faut apporter</h2>
+
+      <p class="text">
+        Pour que votre enfant soit confortable toute la journée, prévoyez un petit sac avec :
+      </p>
+
+      <ul class="bullets text">
+        <li><strong>Doudou / tétine</strong> (si besoin)</li>
+        <li><strong>Deux tenues de rechange</strong> adaptées à la saison</li>
+        <li><strong>Gourde</strong> ou biberon selon l’âge (si nécessaire)</li>
+        <li><strong>Produits spécifiques</strong> si votre enfant en a besoin (ordonnance/PAI)</li>
+      </ul>
+
+      <div class="note-box" style="margin-top:16px;">
+        <p class="text" style="margin:0;">
+          On t’indique ici si tu veux : marquage du linge / casiers / ce qui reste sur place.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FERMETURES -->
+<section class="section" id="fermetures">
+  <div class="container center section-text">
+    <h2 class="h-script">Fermetures & jours spécifiques</h2>
+
+    <p class="text" style="max-width:78ch; margin-left:auto; margin-right:auto;">
+      Indique ici les fermetures annuelles (ex : août, fin d’année, ponts éventuels),
+      les jours fériés, et les éventuelles journées pédagogiques.
+    </p>
+
+    <div class="cards" style="margin-top:22px;">
+      <article class="card">
+        <h3 class="h-title">Vacances</h3>
+        <p class="text">
+          Exemple : fermeture en août + une semaine à Noël + une semaine au printemps.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3 class="h-title">Jours fériés</h3>
+        <p class="text">
+          La crèche est fermée les jours fériés (à préciser si exceptions).
+        </p>
+      </article>
+
+      <article class="card">
+        <h3 class="h-title">Journées pédagogiques</h3>
+        <p class="text">
+          Exemple : 1 à 2 journées/an dédiées à la formation et à l’organisation (dates communiquées à l’avance).
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- TARIFS -->
+<section class="section" id="tarifs">
+  <div class="container section-split">
+    <div class="section-text">
+      <h2 class="h-script">Tarifs & aides</h2>
+
+      <p class="text">
+        Ici, tu choisis ton niveau de transparence :
+        soit tu affiches des fourchettes, soit tu expliques simplement le principe et tu renvoies vers un échange.
+      </p>
+
+      <ul class="bullets text">
+        <li>Les modalités (contrat / nombre de jours / horaires) influencent le tarif.</li>
+        <li>Des aides peuvent exister selon la situation (CAF / CMG, etc.).</li>
+        <li>On répond clairement par téléphone ou mail — sans jargon.</li>
+      </ul>
+
+      <div style="margin-top:16px;">
+        <a href="contact.html" class="btn-primary">Demander une estimation</a>
+      </div>
+    </div>
+
+    <div class="section-visual">
+      <div class="placeholder text">
+        Visuel à venir<br>
+        (pictos calendrier / aide / contrat)
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="section section-contact" id="cta">
+  <div class="container center">
+    <h2 class="h-script">Une question ?</h2>
+
+    <p class="text contact-intro">
+      On vous répond simplement, rapidement, et avec plaisir.
+    </p>
+
+    <div class="contact-infos">
+      <p class="contact-item text">
+        06&nbsp;00&nbsp;00&nbsp;00&nbsp;00
+        <br>
+        contact@ethilia.fr
+        <br>
+        Rebréchien (45)
+      </p>
+    </div>
+
+    <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center;">
+      <a href="contact.html" class="btn-primary">Nous contacter</a>
+    </div>
+
+    <p class="h-script" style="font-size:18px; margin-top:16px;">
+      On vous répond avec plaisir
+    </p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p class="footer-copy text">© Ethilia</p>
+
+    <nav class="footer-legal">
+<a href="mentions-legales.html" target="_blank" rel="noopener">
+  Mentions légales
+</a>
+
+      <span>·</span>
+<a href="politique-confidentialite.html" target="_blank" rel="noopener">
+  Confidentialité
+</a>
+
+      <span>·</span>
+<a href="cookies.html" target="_blank" rel="noopener">
+  Cookies
+</a>
+
+    </nav>
+  </div>
+</footer>
+
+<!-- DOCK BAS -->
+<nav class="anchor-dock" aria-label="Navigation rapide">
+  <a href="#en-bref">En bref</a>
+  <a href="#fonctionnement">Fonctionnement</a>
+  <a href="#repas" class="hide-mobile">Repas</a>
+  <a href="#apporter" class="hide-mobile">À apporter</a>
+  <a href="#fermetures" class="hide-mobile">Fermetures</a>
+  <a href="#tarifs" class="hide-mobile">Tarifs</a>
+  <a href="pre-inscription.html" class="cta">Pré-inscription</a>
+</nav>
+
+</body>
+</html>

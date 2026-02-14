@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Ethilia — La micro-crèche</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Découvrez la micro-crèche Ethilia à Rebréchien : accueil à taille humaine, 12 places, pédagogie inspirée Montessori.">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Cormorant+Garamond:wght@500;600;700&family=Dancing+Script:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Mini styles locaux : uniquement pour la page (Hero + KPIs + dock bas) -->
+  <style>
+    html{ scroll-behavior: smooth; }
+    [id]{ scroll-margin-top: 160px; } /* offset pour les ancres (header sticky) */
+
+    /* Hero de page */
+    .page-hero{
+      padding: 70px 0 26px;
+    }
+    .page-hero .container{
+      display: grid;
+      justify-items: center;
+      text-align: center;
+      gap: 14px;
+    }
+    .page-hero .lead{
+      max-width: 62ch;
+      margin: 0 auto;
+    }
+    .page-hero .hero-visual{
+      width: min(760px, 100%);
+      margin-top: 6px;
+      margin-bottom: 6px;
+    }
+    .page-hero .hero-visual img{
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    /* KPIs */
+    .kpi{
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 10px;
+      width: 100%;
+    }
+    .kpi .card{
+      text-align: center;
+      padding: 18px;
+    }
+    .kpi .kpi-title{
+      font-size: 13px;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 8px;
+    }
+    .kpi .kpi-value{
+      font-family: var(--font-serif);
+      font-weight: 700;
+      font-size: 22px;
+      color: var(--text);
+      margin: 0 0 6px;
+    }
+    .kpi .kpi-sub{
+      font-size: 14px;
+      line-height: 1.55;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    /* Dock bas (Option B) */
+    .anchor-dock{
+      position: fixed;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%);
+      z-index: 60;
+
+      display: flex;
+      gap: 8px;
+      padding: 10px;
+
+      background: rgba(251,247,242,.88);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: 0 14px 32px rgba(0,0,0,.10);
+    }
+
+    .anchor-dock a{
+      padding: 10px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      background: rgba(255,255,255,.6);
+      border: 1px solid rgba(0,0,0,.06);
+      white-space: nowrap;
+      color: var(--text);
+    }
+
+    .anchor-dock a:hover{
+      background: rgba(255,255,255,.95);
+    }
+
+    .anchor-dock a.cta{
+      background: var(--sage-soft);
+      color: rgba(255,255,255,.95);
+      border: 1px solid rgba(0,0,0,.14);
+    }
+
+    .anchor-dock a.cta:hover{
+      background: var(--sage-soft-hover);
+    }
+
+    /* Espace en bas pour éviter que le dock masque le contenu */
+    body{
+      padding-bottom: 96px;
+    }
+
+    @media (max-width: 900px){
+      .kpi{ grid-template-columns: 1fr; }
+
+      .anchor-dock{
+        width: calc(100% - 24px);
+        justify-content: space-between;
+        bottom: 12px;
+      }
+      .anchor-dock a{
+        flex: 1;
+        text-align: center;
+        padding: 10px 8px;
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="container header-inner">
+
+    <a href="index.html" class="logo">
+      <img src="assets/images/logo.svg" alt="Ethilia">
+    </a>
+
+    <nav class="main-nav">
+      <a href="micro-creche.html">La micro-crèche</a>
+      <a href="projet-pedagogique.html">Projet pédagogique</a>
+      <a href="equipe.html">L’équipe</a>
+      <a href="infos-pratiques.html">Infos pratiques</a>
+      <a href="contact.html" class="btn-primary">Contact</a>
+    </nav>
+
+    <a href="pre-inscription.html" class="btn-primary btn-preinscription">
+      Pré-inscription
+    </a>
+
+    <div class="header-tagline h-script">
+      Ethilia — Là où grandir commence
+    </div>
+
+  </div>
+</header>
+
+<!-- HERO PAGE -->
+<section class="page-hero">
+  <div class="container">
+    <h1 class="h-script hero-title">La micro-crèche Ethilia</h1>
+
+    <p class="text lead">
+      Une micro-crèche à taille humaine, pensée pour accueillir chaque enfant dans un cadre chaleureux,
+      sécurisé et cohérent avec son rythme.
+    </p>
+
+    <!-- Option : tu peux remplacer l'image par une illustration dédiée à la page -->
+    <div class="hero-visual">
+      <img src="assets/images/hero-illustration.png" alt="">
+    </div>
+
+    <a href="pre-inscription.html" class="btn-primary">
+      Pré-inscrire mon enfant
+    </a>
+
+    <!-- “En bref” -->
+    <div class="kpi" id="en-bref">
+      <article class="card">
+        <div class="kpi-title text">Capacité</div>
+        <p class="kpi-value">12 places</p>
+        <p class="kpi-sub text">Accueil simultané, pour un accompagnement individualisé.</p>
+      </article>
+
+      <article class="card">
+        <div class="kpi-title text">Âges</div>
+        <p class="kpi-value">De 10 semaines à 4 ans</p>
+        <p class="kpi-sub text">Du tout petit jusqu’à l’entrée à l’école.</p>
+      </article>
+
+      <article class="card">
+        <div class="kpi-title text">Horaires</div>
+        <p class="kpi-value">8h – 18h30</p>
+        <p class="kpi-sub text">Du lundi au vendredi, avec une amplitude pensée pour les familles.</p>
+      </article>
+
+      <article class="card">
+        <div class="kpi-title text">Fermetures</div>
+        <p class="kpi-value">Seulement 5 semaines / an</p>
+        <p class="kpi-sub text">Août, fin d’année, printemps + jours fériés & journées pédagogiques.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- 1) Vision -->
+<section class="section" id="vision">
+  <div class="container section-text center">
+    <h2 class="h-script">Une micro-crèche à taille humaine</h2>
+
+    <p class="text" style="max-width: 68ch; margin-left:auto; margin-right:auto;">
+      Ethilia a été imaginée pour offrir un accueil vraiment individualisé dans une structure de petite taille avec:
+      des repères stables, une équipe attentive, et un quotidien construit autour du bien-être,
+      de l’autonomie et de la sécurité affective.
+    </p>
+
+    <div class="cards" style="margin-top:26px;">
+      <article class="card">
+      
+        <h3 class="h-title">Bien-être & sécurité</h3>
+        <p class="text">
+          Un cadre rassurant, des routines claires, et une présence adulte constante et stable pour accompagner
+          chaque étape de la journée.
+        </p>
+      </article>
+
+      <article class="card">
+       
+        <h3 class="h-title">Autonomie au quotidien</h3>
+        <p class="text">
+          Encourager l’enfant à faire seul, à son rythme, avec du matériel adapté et un environnement
+          pensé pour le libre choix. Afin de l'aider à explorer, expérimenter, et grandir en confiance dans ses capacités.
+        </p>
+      </article>
+
+      <article class="card">
+      
+        <h3 class="h-title">Lien à la nature</h3>
+        <p class="text">
+          Une sensibilité forte au monde vivant : découverte du dehors, respect des saisons,
+          activités et supports plus naturels.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 2) Espaces -->
+<section class="section" id="espaces">
+  <div class="container section-split">
+    <div class="section-text">
+      <h2 class="h-script">Des espaces pensés pour les tout-petits</h2>
+      <p class="text">
+        Les espaces sont organisés pour sécuriser, stimuler sans surstimuler, et donner des repères.
+        L’objectif : permettre aux enfants d’explorer, de bouger, de se poser, de manger et de dormir
+        dans un environnement cohérent et apaisant.
+      </p>
+
+      <p class="text">
+        plus de blabla sur les espaces, les aménagements, les extérieurs, la propreté, la sécurité, etc.
+      </p>
+    </div>
+
+    <div class="section-visual">
+      <div class="placeholder text">
+        Visuel / plan / photo à venir<br>
+        (on pourra mettre un schéma simple ou 2-3 photos)
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- 3) Pédagogie -->
+<section class="section" id="pedagogie">
+  <div class="container">
+    <h2 class="h-script center">Notre approche au quotidien</h2>
+
+    <div class="cards" style="margin-top:22px;">
+      <article class="card">
+        <h3 class="h-title">Un environnement préparé</h3>
+        <p class="text">
+          Un espace épuré, ordonné, esthétique et adapté à l’âge, pour que l’enfant puisse se concentrer,
+          choisir et recommencer.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3 class="h-title">Observation & posture pro</h3>
+        <p class="text">
+          Observer avant d’intervenir. Ajuster. Mettre des limites claires sans rigidité.
+          Aider l’enfant à grandir sans le précipiter.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3 class="h-title">Émotions & communication</h3>
+        <p class="text">
+          Accueillir les émotions, mettre des mots, favoriser une communication bienveillante
+          et compréhensible, même pour les plus petits.
+        </p>
+      </article>
+    </div>
+
+    <div class="center" style="margin-top:18px;">
+      <a href="projet-pedagogique.html" class="btn-secondary">Découvrir le projet pédagogique</a>
+    </div>
+  </div>
+</section>
+
+<!-- 4) Familles -->
+<section class="section" id="familles">
+  <div class="container section-split">
+    <div class="section-visual">
+      <div class="placeholder text">
+        Visuel à venir<br>
+        (moment d’accueil / transmissions / café parents)
+      </div>
+    </div>
+
+    <div class="section-text">
+      <h2 class="h-script">Avec les familles : confiance et continuité</h2>
+      <p class="text">
+        On ne “pose” pas un enfant le matin et on le “reprend” le soir.
+        On construit une continuité entre la maison et la crèche.
+      </p>
+
+      <ul class="text" style="margin: 0; padding-left: 18px; line-height: 1.9;">
+        <li><strong>Période de familiarisation</strong> progressive et ajustée au besoin de l’enfant.</li>
+        <li><strong>Transmissions</strong> quotidiennes, matin et soir, pour suivre sommeil, repas, humeur, évolutions.</li>
+        <li><strong>Temps de rencontre</strong> : échanges, ateliers, moments conviviaux.</li>
+      </ul>
+
+      <div style="margin-top:16px;">
+        <a href="contact.html" class="btn-primary">Nous poser une question</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- 5) Inclusion -->
+<section class="section" id="inclusion">
+  <div class="container center">
+    <h2 class="h-script">Inclusion & Projet d’Accueil Individualisé</h2>
+
+    <p class="text" style="max-width: 74ch; margin-left:auto; margin-right:auto;">
+      Ethilia favorise l’intégration des enfants présentant un handicap ou une maladie chronique,
+      lorsque l’état est compatible avec la vie en collectivité. Un Projet d’Accueil Individualisé (PAI)
+      peut être mis en place, en lien avec la famille et les professionnels de santé.
+    </p>
+
+    <div class="cards" style="margin-top:22px;">
+      <article class="card">
+        <h3 class="h-title">Écoute & adaptation</h3>
+        <p class="text">
+          Chaque situation est étudiée avec sérieux : besoins, sécurité, confort, faisabilité,
+          et organisation quotidienne.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3 class="h-title">Partenaires & référents</h3>
+        <p class="text">
+          Possibilité de s’appuyer sur des référents (santé / inclusion) et des intervenants,
+          selon les besoins de l’enfant.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3 class="h-title">PAI</h3>
+        <p class="text">
+          Un cadre clair, co-construit et sécurisé, qui précise les modalités d’accueil.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="section section-contact" id="cta">
+  <div class="container center">
+    <h2 class="h-script">Envie d’échanger ?</h2>
+
+    <p class="text contact-intro">
+      Une question, une demande de pré-inscription, ou simplement besoin d’en parler :
+    </p>
+
+    <div class="contact-infos">
+      <p class="contact-item text">
+        06&nbsp;00&nbsp;00&nbsp;00&nbsp;00
+        <br>
+        contact@ethilia.fr
+        <br>
+        Rebréchien (45)
+      </p>
+    </div>
+
+    <a href="contact.html" class="btn-primary">
+      Ecrivez-nous
+    </a>
+
+    <p class="h-script" style="font-size:18px; margin-top:16px;">
+      On vous répond avec plaisir
+    </p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+
+    <p class="footer-copy text">
+      © Ethilia
+    </p>
+
+    <nav class="footer-legal">
+<a href="mentions-legales.html" target="_blank" rel="noopener">
+  Mentions légales
+</a>
+
+      <span>·</span>
+   <a href="politique-confidentialite.html" target="_blank" rel="noopener">
+  Confidentialité
+</a>
+
+      <span>·</span>
+<a href="cookies.html" target="_blank" rel="noopener">
+  Cookies
+</a>
+
+    </nav>
+
+  </div>
+</footer>
+
+<!-- DOCK BAS (scrolly option B) -->
+<nav class="anchor-dock" aria-label="Navigation rapide">
+  <a href="#vision">Vision</a>
+  <a href="#espaces">Espaces</a>
+  <a href="#pedagogie">Approche</a>
+  <a href="#familles">Familles</a>
+  <a href="#inclusion">PAI</a>
+  <a href="pre-inscription.html" class="cta">Pré-inscription</a>
+</nav>
+
+</body>
+</html>

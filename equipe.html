@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Ethilia — L’équipe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Découvrez l’équipe de la micro-crèche Ethilia : une équipe qualifiée et engagée, à taille humaine.">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Cormorant+Garamond:wght@500;600;700&family=Dancing+Script:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    html{ scroll-behavior: smooth; }
+    [id]{ scroll-margin-top: 160px; }
+
+    /* HERO de page (même logique que micro-crèche / projet péda) */
+    .page-hero{
+      padding: 76px 0 34px;
+    }
+    .page-hero .container{
+      display: grid;
+      justify-items: center;
+      text-align: center;
+      gap: 14px;
+    }
+    .page-hero .lead{
+      max-width: 72ch;
+      margin: 0 auto;
+      line-height: 1.85;
+    }
+
+    /* Mini “signature” sous le titre */
+    .hero-pill{
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.55);
+      box-shadow: var(--shadow);
+      margin-top: 4px;
+      margin-bottom: 6px;
+    }
+    .hero-pill .dot{
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(111,127,107,.55);
+    }
+    .hero-pill span{
+      font-size: 13px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--sage);
+    }
+
+    /* Photos (propre, stable, sans casser ton CSS global) */
+    .team-card .photo{
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      position: relative;
+      background: rgba(243,238,232,.55);
+    }
+    .team-card .photo img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: saturate(.95) contrast(1.02);
+    }
+    /* Placeholder si pas encore de photo */
+    .team-card .photo .ph{
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      font-size: 13px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: rgba(43,43,43,.55);
+    }
+
+    /* Texte dans les cartes : plus lisible */
+    .team-card .bio{
+      margin-top: 10px;
+      line-height: 1.75;
+      font-size: 15.5px;
+      color: var(--muted);
+    }
+
+    /* Cartes “valeurs” en dessous (mêmes .cards/.card que le site) */
+    .values{
+      margin-top: 22px;
+    }
+
+    /* Dock bas (scrolly) — même pattern que tes autres pages */
+    .anchor-dock{
+      position: fixed;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%);
+      z-index: 60;
+
+      display: flex;
+      gap: 8px;
+      padding: 10px;
+
+      background: rgba(251,247,242,.88);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: 0 14px 32px rgba(0,0,0,.10);
+    }
+    .anchor-dock a{
+      padding: 10px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      background: rgba(255,255,255,.6);
+      border: 1px solid rgba(0,0,0,.06);
+      white-space: nowrap;
+      color: var(--text);
+    }
+    .anchor-dock a:hover{ background: rgba(255,255,255,.95); }
+    .anchor-dock a.cta{
+      background: var(--sage-soft);
+      color: rgba(255,255,255,.95);
+      border: 1px solid rgba(0,0,0,.14);
+    }
+    .anchor-dock a.cta:hover{ background: var(--sage-soft-hover); }
+
+    /* Espace bas pour éviter que le dock masque le contenu */
+    body{ padding-bottom: 96px; }
+
+    @media (max-width: 900px){
+      .anchor-dock{
+        width: calc(100% - 24px);
+        justify-content: space-between;
+        bottom: 12px;
+      }
+      .anchor-dock a{
+        flex: 1;
+        text-align: center;
+        padding: 10px 8px;
+        font-size: 12px;
+      }
+      .anchor-dock a.hide-mobile{ display:none; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="container header-inner">
+
+    <a href="index.html" class="logo">
+      <img src="assets/images/logo.svg" alt="Ethilia">
+    </a>
+
+    <nav class="main-nav">
+      <a href="micro-creche.html">La micro-crèche</a>
+      <a href="projet-pedagogique.html">Projet pédagogique</a>
+      <a href="equipe.html">L’équipe</a>
+      <a href="infos-pratiques.html">Infos pratiques</a>
+      <a href="contact.html" class="btn-primary">Contact</a>
+    </nav>
+
+    <a href="pre-inscription.html" class="btn-primary btn-preinscription">
+      Pré-inscription
+    </a>
+
+    <div class="header-tagline h-script">
+      Ethilia — Là où grandir commence
+    </div>
+
+  </div>
+</header>
+
+<!-- HERO (page) -->
+<section class="page-hero" id="top">
+  <div class="container">
+
+    <h1 class="h-script hero-title">Une équipe qualifiée et engagée</h1>
+    <p class="text lead">
+      Ethilia, c’est une micro-crèche à taille humaine. Derrière le projet, une équipe de professionnels
+      de la petite enfance, présents au quotidien, avec une même exigence : le bien-être, la sécurité affective
+      et un accompagnement respectueux du rythme de chaque enfant.
+    </p>
+  </div>
+</section>
+
+
+<!-- 1) Profils -->
+<section class="section section-team" id="profils">
+  <div class="container">
+
+    <h2 class="h-script center">Les fondateurs</h2>
+
+    <div class="team-cards">
+
+      <!-- Estelle -->
+      <article class="team-card">
+        <div class="photo">
+          <!-- Remplace par ta photo :
+          <img src="assets/images/team-estelle.jpg" alt="Estelle — Éducatrice de jeunes enfants">
+          -->
+          <div class="ph text">Photo</div>
+        </div>
+
+        <h3 class="h-title">Estelle</h3>
+        <p class="team-role text">Référente pédagogique et éducative</p>
+        <p class="team-qualification text">Éducatrice de jeunes enfants</p>
+
+        <p class="bio text">
+          Une expertise solide en crèche municipale et en micro-crèches Montessori.
+          Elle guide la cohérence pédagogique et veille à un accompagnement fin, rassurant et évolutif,
+          adapté à chaque enfant.
+        </p>
+      </article>
+
+      <!-- Solène -->
+      <article class="team-card">
+        <div class="photo">
+          <!-- <img src="assets/images/team-solene.jpg" alt="Solène — Auxiliaire de puériculture"> -->
+          <div class="ph text">Photo</div>
+        </div>
+
+        <h3 class="h-title">Solène</h3>
+        <p class="team-role text">Soins, bien-être et accompagnement du développement</p>
+        <p class="team-qualification text">Auxiliaire de puériculture</p>
+
+        <p class="bio text">
+          Diplômée d’État et expérimentée en micro-crèches Montessori.
+          Elle apporte une présence douce, structurante et attentive, au service du confort,
+          de la sécurité et de l’épanouissement des tout-petits.
+        </p>
+      </article>
+
+      <!-- Alexandre -->
+      <article class="team-card">
+        <div class="photo">
+          <!-- <img src="assets/images/team-alexandre.jpg" alt="Alexandre — Gestionnaire"> -->
+          <div class="ph text">Photo</div>
+        </div>
+
+        <h3 class="h-title">Alexandre</h3>
+        <p class="team-role text">Organisation et coordination de la structure</p>
+        <p class="team-qualification text">Gestionnaire</p>
+
+        <p class="bio text">
+          Il assure l’organisation, la coordination et le bon fonctionnement de la micro-crèche.
+          Objectif : un cadre stable et fluide, pour que l’équipe puisse se concentrer sur l’essentiel :
+          les enfants et les familles.
+        </p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- 2) Ce qui nous guide (cards standard du site) -->
+<section class="section" id="engagement">
+  <div class="container center section-text">
+    <h2 class="h-script">Ce qui nous guide au quotidien</h2>
+
+    <p class="text" style="max-width: 78ch; margin-left:auto; margin-right:auto;">
+      On ne promet pas “le parfait”. On promet du sérieux : une présence stable, des repères, et une équipe
+      qui observe, ajuste et accompagne avec bienveillance.
+    </p>
+
+    <div class="cards values">
+      <article class="card">
+        <h3 class="h-title">Sécurité affective</h3>
+        <p class="text">
+          Des repères, des routines, une communication constante et des adultes disponibles.
+          L’enfant a besoin de confiance pour explorer.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3 class="h-title">Respect du rythme</h3>
+        <p class="text">
+          Sommeil, repas, activités : on s’adapte à l’enfant, sans le précipiter.
+          La petite taille permet une vraie souplesse.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3 class="h-title">Qualité & engagement</h3>
+        <p class="text">
+          Une équipe formée, impliquée, et un environnement pensé pour stimuler sans surstimuler,
+          avec des choix plus durables et plus naturels.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- CTA final -->
+<section class="section section-contact" id="cta">
+  <div class="container center">
+    <h2 class="h-script">Envie d’échanger ?</h2>
+
+    <p class="text contact-intro">
+      Une question, une demande de pré-inscription, ou simplement besoin d’en parler :
+    </p>
+
+    <div class="contact-infos">
+      <p class="contact-item text">
+        06&nbsp;00&nbsp;00&nbsp;00&nbsp;00
+        <br>
+        contact@ethilia.fr
+        <br>
+        Rebréchien (45)
+      </p>
+    </div>
+
+    <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center;">
+      <a href="contact.html" class="btn-primary">Nous contacter</a>
+    </div>
+
+    <p class="h-script" style="font-size:18px; margin-top:16px;">
+      On vous répond avec plaisir
+    </p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+
+    <p class="footer-copy text">
+      © Ethilia
+    </p>
+
+    <nav class="footer-legal">
+<a href="mentions-legales.html" target="_blank" rel="noopener">
+  Mentions légales
+</a>
+<span>·</span>
+    <a href="politique-confidentialite.html" target="_blank" rel="noopener">
+  Confidentialité
+</a>
+
+      <span>·</span>
+<a href="cookies.html" target="_blank" rel="noopener">
+  Cookies
+</a>
+
+    </nav>
+
+  </div>
+</footer>
+
+</body>
+</html>
