@@ -1,12 +1,4 @@
 /* =========================================================
-   ETHILIA — style.css (refactor NO-OP)
-   - AUCUN déplacement de règles (cascade identique)
-   - AUCUN changement de sélecteur (spécificité identique)
-   - Ménage "no-op" uniquement : formatage + suppression d'une règle orpheline sans effet
-   Date: 2026-02-20
-   ========================================================= */
-
-/* =========================================================
    ETHILIA — style.css
    Objectif : fichier lisible + commenté, sans changer le rendu.
    Règle : on conserve l’ordre (cascade), on clarifie, on retire les doublons sûrs.
@@ -14,7 +6,7 @@
 
 :root{
   /* Colors */
-  --bg: #fffaf2; /* ✅ MODIF (plus lumineux / plus vif, toujours crème) */
+  --bg: #fbf7f2;
   --surface: #ffffff;
   --text: #2b2b2b;
   --muted: #6b6b6b;
@@ -59,55 +51,38 @@
 html, body{ margin: 0; padding: 0; }
 
 html{ background: var(--bg); }
-/* =========
-   ETHILIA — Background aquarelle (image)
-   ========= */
-
-/* NOTE:
-   - Place l'image dans: assets/images/ethilia-bg.webp
-   - CSS file is in /css, so the relative path is ../assets/images/...
-*/
 
 body{
   background-color: var(--bg);
-  background-image: url("../assets/images/ethilia-bg.webp");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-
-  position: relative;
-  min-height: 100vh;
-  overflow-x: hidden;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='1200' viewBox='0 0 1200 1200'%3E%3Cdefs%3E%3Cfilter id='blob'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012' numOctaves='2' seed='21' result='t'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='t' scale='70' xChannelSelector='R' yChannelSelector='G'/%3E%3CfeGaussianBlur stdDeviation='13'/%3E%3C/filter%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.010' numOctaves='3' seed='12'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeGaussianBlur stdDeviation='14'/%3E%3C/filter%3E%3C/defs%3E%3Cg opacity='.52' filter='url(%23blob)'%3E%3Ccircle cx='220' cy='260' r='230' fill='%23E2B16A' fill-opacity='.22'/%3E%3Ccircle cx='240' cy='280' r='190' fill='%23E2B16A' fill-opacity='.26'/%3E%3Ccircle cx='200' cy='250' r='150' fill='%23E2B16A' fill-opacity='.18'/%3E%3Ccircle cx='235' cy='245' r='120' fill='%23E2B16A' fill-opacity='.14'/%3E%3Ccircle cx='820' cy='240' r='270' fill='%236F7F6B' fill-opacity='.16'/%3E%3Ccircle cx='850' cy='270' r='220' fill='%236F7F6B' fill-opacity='.18'/%3E%3Ccircle cx='790' cy='230' r='170' fill='%236F7F6B' fill-opacity='.12'/%3E%3Ccircle cx='845' cy='235' r='130' fill='%236F7F6B' fill-opacity='.10'/%3E%3Ccircle cx='980' cy='780' r='310' fill='%23E2B16A' fill-opacity='.18'/%3E%3Ccircle cx='940' cy='820' r='250' fill='%23E2B16A' fill-opacity='.22'/%3E%3Ccircle cx='1030' cy='760' r='190' fill='%23E2B16A' fill-opacity='.14'/%3E%3Ccircle cx='980' cy='740' r='150' fill='%23E2B16A' fill-opacity='.10'/%3E%3Ccircle cx='320' cy='880' r='330' fill='%236F7F6B' fill-opacity='.14'/%3E%3Ccircle cx='360' cy='900' r='270' fill='%236F7F6B' fill-opacity='.16'/%3E%3Ccircle cx='290' cy='850' r='210' fill='%236F7F6B' fill-opacity='.11'/%3E%3Ccircle cx='340' cy='840' r='160' fill='%236F7F6B' fill-opacity='.09'/%3E%3Ccircle cx='620' cy='620' r='250' fill='%236F7F6B' fill-opacity='.10'/%3E%3Ccircle cx='650' cy='650' r='200' fill='%236F7F6B' fill-opacity='.12'/%3E%3Ccircle cx='590' cy='600' r='150' fill='%236F7F6B' fill-opacity='.08'/%3E%3C/g%3E%3Cg filter='url(%23noise)' opacity='.22'%3E%3Crect width='1200' height='1200' fill='white'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 2400px 3000px;
+  background-attachment: scroll;
 }
-
-/* léger voile pour harmoniser (très subtil) */
 body::before{
-  content:"";
+  content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 0;
 
-  background:
-    radial-gradient(900px 700px at 50% 45%, rgba(255,255,255,.28), transparent 70%),
-    linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,0));
-}
-body::after{
-  content:"";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
+  /* flou global très léger */
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 
-  background: rgba(255, 250, 242, 0.55);
+  /* voile translucide pour lier les couleurs */
+  background: rgba(255,255,255,0.08);
 }
 
-/* Assure que le contenu reste au-dessus */
+/* (Nettoyage) Animation 'clouds-drift' supprimée : non utilisée (aucune propriété animation ne la référence). */
+  to  { transform: translate3d( 1.5%,  1%, 0) scale(1.02); }
+
+/* Contenu au-dessus */
 body > *{
   position: relative;
   z-index: 1;
 }
+
 
 
 
@@ -148,10 +123,7 @@ h1, h2, h3{
   position: sticky;
   top: 0;
   z-index: 50;
-
-  /* ✅ MODIF : cohérent avec le nouveau bg (au lieu de rgba(251,247,242,.92)) */
-  background: rgba(255, 250, 242, 0.35);
-
+  background: rgba(251,247,242,.92);
   backdrop-filter: blur(6px);
   border-bottom: 1px solid var(--line);
   display: flex;
@@ -631,9 +603,7 @@ h1, h2, h3{
 .site-footer{
   border-top: 1px solid var(--line);
   padding: 22px 0;
-
-  /* ✅ MODIF : cohérent avec le nouveau bg (au lieu de rgba(251,247,242,.6)) */
-  background: rgba(255,250,242,.60);
+  background: rgba(251,247,242,.6);
 }
 
 .footer-inner{
@@ -670,8 +640,7 @@ h1, h2, h3{
   background-position: center;
   background-size: 100% 100%;
 
-  /* ✅ MODIF : stop-color 'veil' cohérent avec le nouveau bg (au lieu de %23fbf7f2) */
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320' preserveAspectRatio='none'%3E%3Cdefs%3E%3ClinearGradient id='wash' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%23f3eee8' stop-opacity='0'/%3E%3Cstop offset='18%25' stop-color='%23f3eee8' stop-opacity='1'/%3E%3Cstop offset='86%25' stop-color='%23f3eee8' stop-opacity='1'/%3E%3Cstop offset='100%25' stop-color='%23f3eee8' stop-opacity='0'/%3E%3C/linearGradient%3E%3ClinearGradient id='veil' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%23fffaf2' stop-opacity='0'/%3E%3Cstop offset='34%25' stop-color='%23fffaf2' stop-opacity='0.55'/%3E%3Cstop offset='70%25' stop-color='%23fffaf2' stop-opacity='0.55'/%3E%3Cstop offset='100%25' stop-color='%23fffaf2' stop-opacity='0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M0 78 C 70 42 150 58 230 72 C 310 86 360 120 450 106 C 540 92 600 58 690 78 C 780 98 840 132 930 118 C 1020 104 1100 66 1180 74 C 1260 82 1340 110 1440 92 L1440 222 C 1360 250 1270 266 1180 252 C 1090 238 1030 204 930 220 C 830 236 770 274 680 260 C 590 246 540 208 450 224 C 360 240 300 278 220 264 C 140 250 80 218 0 232 Z' fill='url(%23wash)'/%3E%3Cpath d='M0 128 C 80 108 160 122 250 136 C 340 150 410 176 500 164 C 590 152 650 126 740 140 C 830 154 900 184 990 172 C 1080 160 1150 132 1230 140 C 1310 148 1380 168 1440 158 L1440 214 C 1360 224 1290 244 1210 238 C 1130 232 1060 206 990 216 C 920 226 850 252 760 244 C 670 236 600 214 500 226 C 400 238 330 260 250 252 C 170 244 90 226 0 238 Z' fill='url(%23veil)'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320' preserveAspectRatio='none'%3E%3Cdefs%3E%3ClinearGradient id='wash' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%23f3eee8' stop-opacity='0'/%3E%3Cstop offset='18%25' stop-color='%23f3eee8' stop-opacity='1'/%3E%3Cstop offset='86%25' stop-color='%23f3eee8' stop-opacity='1'/%3E%3Cstop offset='100%25' stop-color='%23f3eee8' stop-opacity='0'/%3E%3C/linearGradient%3E%3ClinearGradient id='veil' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%23fbf7f2' stop-opacity='0'/%3E%3Cstop offset='34%25' stop-color='%23fbf7f2' stop-opacity='0.55'/%3E%3Cstop offset='70%25' stop-color='%23fbf7f2' stop-opacity='0.55'/%3E%3Cstop offset='100%25' stop-color='%23fbf7f2' stop-opacity='0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M0 78 C 70 42 150 58 230 72 C 310 86 360 120 450 106 C 540 92 600 58 690 78 C 780 98 840 132 930 118 C 1020 104 1100 66 1180 74 C 1260 82 1340 110 1440 92 L1440 222 C 1360 250 1270 266 1180 252 C 1090 238 1030 204 930 220 C 830 236 770 274 680 260 C 590 246 540 208 450 224 C 360 240 300 278 220 264 C 140 250 80 218 0 232 Z' fill='url(%23wash)'/%3E%3Cpath d='M0 128 C 80 108 160 122 250 136 C 340 150 410 176 500 164 C 590 152 650 126 740 140 C 830 154 900 184 990 172 C 1080 160 1150 132 1230 140 C 1310 148 1380 168 1440 158 L1440 214 C 1360 224 1290 244 1210 238 C 1130 232 1060 206 990 216 C 920 226 850 252 760 244 C 670 236 600 214 500 226 C 400 238 330 260 250 252 C 170 244 90 226 0 238 Z' fill='url(%23veil)'/%3E%3C/svg%3E");
 }
 
 
