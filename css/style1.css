@@ -1,0 +1,1156 @@
+/* =========================================================
+   ETHILIA — style.css
+   Objectif : fichier lisible + commenté, sans changer le rendu.
+   Règle : on conserve l’ordre (cascade), on clarifie, on retire les doublons sûrs.
+   ========================================================= */
+
+:root{
+  /* Colors */
+  --bg: #fbf7f2;
+  --surface: #ffffff;
+  --text: #2b2b2b;
+  --muted: #6b6b6b;
+  --line: rgba(0,0,0,.08);
+  /* vert actuel un peu trop “marqué” */
+  --sage: #6f7f6b;
+
+  /* nouveau vert “poudre / sauge” (moins saturé) */
+  --sage-soft: #8a9382;
+  --sage-soft-hover: #7f8878;
+
+
+  /* option si tu veux encore plus doux */
+  --sage-soft-2: #859180;
+
+  --sage-dark: #5f6f5b;
+  --blush: #e8c7bf;
+  --cream-soft: #f3eee8;
+
+  /* Effects */
+  --shadow: 0 12px 32px rgba(0,0,0,.08);
+
+  /* Radius */
+  --radius: 18px;
+  --radius-lg: 26px;
+
+  /* Layout */
+  --max: 1120px;
+  --pad: 22px;
+
+  /* Typography */
+   --font-sans: "Nunito", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  --font-serif: "Cormorant Garamond", serif;
+  --font-script: "Dancing Script", cursive;
+}
+
+
+/* =========================
+   2) Reset / Base
+   ========================= */
+*{ box-sizing: border-box; }
+html, body{ margin: 0; padding: 0; }
+
+html{ background: var(--bg); }
+
+body{
+  background-color: var(--bg);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='1200' viewBox='0 0 1200 1200'%3E%3Cdefs%3E%3Cfilter id='blob'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012' numOctaves='2' seed='21' result='t'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='t' scale='70' xChannelSelector='R' yChannelSelector='G'/%3E%3CfeGaussianBlur stdDeviation='13'/%3E%3C/filter%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.010' numOctaves='3' seed='12'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeGaussianBlur stdDeviation='14'/%3E%3C/filter%3E%3C/defs%3E%3Cg opacity='.52' filter='url(%23blob)'%3E%3Ccircle cx='220' cy='260' r='230' fill='%23E2B16A' fill-opacity='.22'/%3E%3Ccircle cx='240' cy='280' r='190' fill='%23E2B16A' fill-opacity='.26'/%3E%3Ccircle cx='200' cy='250' r='150' fill='%23E2B16A' fill-opacity='.18'/%3E%3Ccircle cx='235' cy='245' r='120' fill='%23E2B16A' fill-opacity='.14'/%3E%3Ccircle cx='820' cy='240' r='270' fill='%236F7F6B' fill-opacity='.16'/%3E%3Ccircle cx='850' cy='270' r='220' fill='%236F7F6B' fill-opacity='.18'/%3E%3Ccircle cx='790' cy='230' r='170' fill='%236F7F6B' fill-opacity='.12'/%3E%3Ccircle cx='845' cy='235' r='130' fill='%236F7F6B' fill-opacity='.10'/%3E%3Ccircle cx='980' cy='780' r='310' fill='%23E2B16A' fill-opacity='.18'/%3E%3Ccircle cx='940' cy='820' r='250' fill='%23E2B16A' fill-opacity='.22'/%3E%3Ccircle cx='1030' cy='760' r='190' fill='%23E2B16A' fill-opacity='.14'/%3E%3Ccircle cx='980' cy='740' r='150' fill='%23E2B16A' fill-opacity='.10'/%3E%3Ccircle cx='320' cy='880' r='330' fill='%236F7F6B' fill-opacity='.14'/%3E%3Ccircle cx='360' cy='900' r='270' fill='%236F7F6B' fill-opacity='.16'/%3E%3Ccircle cx='290' cy='850' r='210' fill='%236F7F6B' fill-opacity='.11'/%3E%3Ccircle cx='340' cy='840' r='160' fill='%236F7F6B' fill-opacity='.09'/%3E%3Ccircle cx='620' cy='620' r='250' fill='%236F7F6B' fill-opacity='.10'/%3E%3Ccircle cx='650' cy='650' r='200' fill='%236F7F6B' fill-opacity='.12'/%3E%3Ccircle cx='590' cy='600' r='150' fill='%236F7F6B' fill-opacity='.08'/%3E%3C/g%3E%3Cg filter='url(%23noise)' opacity='.22'%3E%3Crect width='1200' height='1200' fill='white'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 2400px 3000px;
+  background-attachment: scroll;
+}
+body::before{
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+
+  /* flou global très léger */
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  /* voile translucide pour lier les couleurs */
+  background: rgba(255,255,255,0.08);
+}
+
+/* (Nettoyage) Animation 'clouds-drift' supprimée : non utilisée (aucune propriété animation ne la référence). */
+  to  { transform: translate3d( 1.5%,  1%, 0) scale(1.02); }
+
+/* Contenu au-dessus */
+body > *{
+  position: relative;
+  z-index: 1;
+}
+
+
+
+
+img{ max-width: 100%; display: block; }
+a{ color: inherit; text-decoration: none; }
+
+p{
+  margin: 0 0 14px;
+  color: var(--muted);
+}
+
+.container{
+  width: min(var(--max), 100% - (var(--pad) * 2));
+  margin: 0 auto;
+}
+
+
+/* =========================
+   3) Typo globale (uniformisation)
+   - On garde le body en sans
+   - On passe les titres du site en Fraunces pour matcher le Hero
+   ========================= */
+h1, h2, h3{
+  font-family: var(--font-serif);
+  color: var(--text);
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  margin: 0;
+}
+
+.center{ text-align: center; }
+
+
+/* =========================
+   4) Header / Navigation (FINAL — inchangé visuellement)
+   ========================= */
+.site-header{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(251,247,242,.92);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; /* <= IMPORTANT */
+}
+
+.header-inner{
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "logo nav cta"
+    "tagline tagline tagline";
+  align-items: center;
+  gap: 10px 14px;
+  padding: 6px 100px;
+  width: 100%; /* <= IMPORTANT */
+}
+
+.logo{ grid-area: logo; }
+.logo img{
+  height: 86px;
+  width: auto;
+}
+
+.main-nav{
+  grid-area: nav;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+}
+
+.main-nav a{
+  padding: 10px 12px;
+  border-radius: 999px;
+  font-size: 15px;
+}
+
+.main-nav a:hover{
+  background: rgba(0,0,0,.04);
+}
+
+/* =========================
+   Header déco — double bande AUTOUR du menu uniquement
+   NOTE : cette règle complète/override la .main-nav précédente (on garde les 2 par cascade).
+   ========================= */
+.main-nav{
+  grid-area: nav;
+  position: relative;
+  display: inline-flex;      /* <-- important */
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+
+  width: fit-content;        /* <-- la largeur = uniquement les liens */
+  margin: 0 auto;            /* <-- centré dans la colonne nav */
+  padding: 10px 26px;        /* espace + petite marge latérale */
+}
+
+/* Lignes haut/bas */
+.main-nav::before,
+.main-nav::after{
+  content:"";
+  position:absolute;
+  left: 0;
+  right: 0;
+
+  height: 3px; /* hauteur max */
+  background: linear-gradient(
+    to right,
+    rgba(0,0,0,0) 0%,
+    rgba(0,0,0,.06) 15%,
+    rgba(0,0,0,.12) 50%,
+    rgba(0,0,0,.06) 85%,
+    rgba(0,0,0,0) 100%
+  );
+
+  border-radius: 999px;
+  filter: blur(.2px); /* très léger, juste pour casser la netteté */
+  opacity: .7;
+}
+
+
+.main-nav::before{ top: 0; }
+.main-nav::after { bottom: 0; }
+
+/* CTA dans la nav (Contact) : inchangé */
+.site-header .btn-primary{
+  grid-area: cta;
+  justify-self: end;
+}
+
+/* Tagline : inchangé (Fraunces + style premium) */
+/* Tagline sous le menu
+   ⚠️ Note : on laisse volontairement les valeurs actuelles.
+   'margin: 10;' et 'padding: -10px ...' sont considérées invalides par le navigateur et sont donc ignorées.
+   (C’est pour ça que ça ne casse pas le rendu.)
+*/
+.header-tagline{
+  grid-area: tagline;        /* <-- OBLIGATOIRE */
+  justify-self: center;      /* centre dans la grille */
+  text-align: center;
+
+  font-size: 16px;
+  letter-spacing: .12em;
+  color: var(--sage);
+  margin: 10;
+  padding: -10px 0 50px;
+  line-height: 0.3;
+}
+
+
+
+
+/* =========================
+   5) Boutons (global)
+   ========================= */
+.btn-primary{
+  background:
+    linear-gradient(180deg,
+      rgba(255,255,255,.22),
+      rgba(255,255,255,0)
+    ),
+    var(--sage-soft);
+
+  color: rgba(255,255,255,.95);
+
+
+  padding: 11px 20px;
+  border-radius: 999px;
+
+  border: 1px solid rgba(0,0,0,.14);
+
+  box-shadow:
+    0 10px 24px rgba(0,0,0,.14),
+    inset 0 1px 0 rgba(255,255,255,.22);
+
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  transition:
+    transform .18s ease,
+    box-shadow .18s ease,
+    background .18s ease;
+}
+
+.btn-primary::before{
+  content:"";
+  position:absolute;
+  left:-18%;
+  top:-55%;
+  width: 70%;
+  height: 170%;
+  background: radial-gradient(circle at 40% 55%,
+    rgba(255,255,255,.22),
+    transparent 62%
+  );
+  transform: rotate(-10deg);
+  opacity:.55;
+  pointer-events:none;
+}
+
+.btn-primary::after{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  pointer-events:none;
+  opacity:.18;
+
+  /* grain léger : si tu n’aimes pas, tu peux supprimer ce bloc */
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,.20), transparent 45%),
+    radial-gradient(circle at 70% 60%, rgba(0,0,0,.10), transparent 55%);
+  mix-blend-mode: soft-light;
+}
+
+.btn-primary:hover{
+  background: linear-gradient(180deg,
+    rgba(255,255,255,.28),
+    rgba(255,255,255,0)
+  ), var(--sage-soft-hover);
+
+  box-shadow:
+    0 14px 28px rgba(0,0,0,.14),
+    inset 0 1px 0 rgba(255,255,255,.20);
+
+  transform: translateY(-1px);
+}
+
+.btn-primary:active{
+  transform: translateY(0px);
+  box-shadow:
+    0 8px 18px rgba(0,0,0,.12),
+    inset 0 2px 10px rgba(0,0,0,.10);
+}
+
+
+.btn-secondary{
+  padding: 12px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,.12);
+  background: rgba(255,255,255,.65);
+  display: inline-block;
+}
+
+.btn-secondary:hover{
+  background: rgba(255,255,255,.95);
+}
+
+/* =========================
+   CTA Header — Pré-inscription
+   ========================= */
+
+.btn-preinscription{
+  grid-area: cta;
+  font-weight: 600;
+  padding: 11px 18px;
+}
+
+/* =========================
+   HEADER — décors floraux (coins)
+   ========================= */
+/* (Info) .site-header déjà défini plus haut. On évite la redéfinition ici pour garder le fichier clair. */
+
+/* on accroche les décors au "bloc header" */
+.site-header::before,
+.site-header::after{
+  content:"";
+  position: absolute;
+  top: 80px;               /* ajuste si tu veux */
+  width: 300px;            /* taille décor */
+  height: 300px;           /* taille décor */
+  background-repeat: no-repeat;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 0;              /* derrière le contenu */
+  opacity: 10;            /* un poil fondu */
+}
+
+/* gauche */
+.site-header::before{
+  left: 0px;             /* décale un peu vers l’extérieur */
+  background-image: url("../assets/images/decoG1.png");
+}
+
+/* droite */
+.site-header::after{
+  right: 0%;
+  background-image: url("../assets/images/decoD1.png");
+}
+
+/* =========================
+   HEADER — déco florale centrale (CSS only)
+   ========================= */
+.header-inner::after{
+  content:"";
+  position: absolute;
+  left: 50%;
+  top: -10%;                 /* pile en bas du header */
+  transform: translateX(-50%);
+
+  width: 1500px;
+  height: 350px;
+
+  background: url("../assets/images/decoC1.png") no-repeat center / contain;
+
+  pointer-events: none;
+  z-index: 0;
+  opacity: .85;
+}
+
+/* remet le contenu du header au-dessus des décors */
+.header-inner{
+  position: relative;
+  z-index: 1;
+}
+
+
+
+/* =========================
+   HERO — version centrée
+   ========================= */
+
+.hero-centered{
+  padding: 90px 0 60px;
+}
+
+.hero-centered .container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+/* Illustration */
+.hero-visual-centered{
+  width: min(810px, 100%);
+  margin-bottom: 20px;
+}
+
+.hero-visual-centered img{
+  width: 100%;
+  height: 80%;
+  object-fit: contain;
+}
+
+
+/* Texte */
+.hero-text-centered{
+  max-width: 640px;
+}
+
+.hero-text-centered .hero-lead{
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 14px;
+  color: var(--text);
+}
+
+.hero-text-centered .hero-sub{
+  font-size: 16.5px;
+  line-height: 1.85;
+  margin-bottom: 26px;
+  color: var(--muted);
+}
+/* Titre */
+.hero-title{
+  font-size: clamp(42px, 4.6vw, 60px);
+  line-height: 1.05;
+  margin-bottom: 0px;
+}
+
+.brand-visual{
+  position: relative;
+  width: 540px; /* valeur finale */
+  aspect-ratio: 1 / 1;
+  display: grid;
+  place-items: center;
+}
+
+.brand-bg{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+
+/* =========================
+   7) Sections génériques (uniformisées)
+   ========================= */
+.section{
+  padding: 58px 0;
+}
+
+.section h2{
+  font-size: 30px;
+  margin: 0 0 18px;
+  letter-spacing: -0.3px;
+}
+
+.section .section-text p{
+  max-width: 62ch;
+}
+
+/* Layout split (si utilisé : .section-split / .section-text / .section-visual) */
+.section-split{
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: 34px;
+  align-items: center;
+}
+
+.section-visual .placeholder{
+  background: rgba(255,255,255,.7);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  padding: 22px;
+  min-height: 260px;
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+}
+
+
+
+/* =========================
+   8) Cards — base
+   NOTE : une première version existait ici, mais était redéfinie plus bas.
+   Elle a été retirée (doublon sûr) pour éviter les contradictions.
+   ========================= */
+
+/* =========================
+   9) Team (si utilisé)
+   ========================= */
+.team-cards{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 18px;
+  margin-bottom: 18px;
+}
+
+.team-card{
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 18px;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.team-card .photo{
+  width: 100%;
+  border-radius: calc(var(--radius-lg) - 6px);
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.7);
+  min-height: 180px;
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.team-card h3{
+  font-family: var(--font-script);
+  font-size: 22px;
+  font-weight: 600; /* le script supporte très bien */
+  margin: 18px 0 8px;
+  color: var(--text);
+}
+.team-card p{
+  margin: 0;
+}
+/* =========================
+   TEAM — rôles & qualifications
+   ========================= */
+
+.team-role{
+  font-size: 15px;
+  font-weight: 500;
+  margin: 0 0 6px;
+  color: var(--text);
+}
+
+.team-qualification{
+  font-size: 13px;
+  color: var(--muted);
+}
+
+
+/* =========================
+   10) Section CTA / Contact (si utilisé)
+   ========================= */
+.section-contact .btn-primary{
+  margin-top: 16px;
+}
+
+.contact-infos{
+  margin-top: 14px;
+  margin-bottom: 18px;
+}
+
+.contact-infos p{
+  margin: 6px 0 6px;
+  color: var(--muted);
+}
+
+
+/* =========================
+   11) Footer (si utilisé)
+   ========================= */
+.site-footer{
+  border-top: 1px solid var(--line);
+  padding: 22px 0;
+  background: rgba(251,247,242,.6);
+}
+
+.footer-inner{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.footer-links{
+  display: flex;
+  gap: 14px;
+}
+
+.footer-links a{
+  color: var(--muted);
+}
+
+.footer-links a:hover{
+  color: var(--text);
+}
+
+
+/* =========================
+   12) Divider organique (inchangé)
+   ========================= */
+.section-divider{
+  width: 100%;
+  height: 210px;
+  margin: 16px 0 58px;
+  pointer-events: none;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320' preserveAspectRatio='none'%3E%3Cdefs%3E%3ClinearGradient id='wash' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%23f3eee8' stop-opacity='0'/%3E%3Cstop offset='18%25' stop-color='%23f3eee8' stop-opacity='1'/%3E%3Cstop offset='86%25' stop-color='%23f3eee8' stop-opacity='1'/%3E%3Cstop offset='100%25' stop-color='%23f3eee8' stop-opacity='0'/%3E%3C/linearGradient%3E%3ClinearGradient id='veil' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%23fbf7f2' stop-opacity='0'/%3E%3Cstop offset='34%25' stop-color='%23fbf7f2' stop-opacity='0.55'/%3E%3Cstop offset='70%25' stop-color='%23fbf7f2' stop-opacity='0.55'/%3E%3Cstop offset='100%25' stop-color='%23fbf7f2' stop-opacity='0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M0 78 C 70 42 150 58 230 72 C 310 86 360 120 450 106 C 540 92 600 58 690 78 C 780 98 840 132 930 118 C 1020 104 1100 66 1180 74 C 1260 82 1340 110 1440 92 L1440 222 C 1360 250 1270 266 1180 252 C 1090 238 1030 204 930 220 C 830 236 770 274 680 260 C 590 246 540 208 450 224 C 360 240 300 278 220 264 C 140 250 80 218 0 232 Z' fill='url(%23wash)'/%3E%3Cpath d='M0 128 C 80 108 160 122 250 136 C 340 150 410 176 500 164 C 590 152 650 126 740 140 C 830 154 900 184 990 172 C 1080 160 1150 132 1230 140 C 1310 148 1380 168 1440 158 L1440 214 C 1360 224 1290 244 1210 238 C 1130 232 1060 206 990 216 C 920 226 850 252 760 244 C 670 236 600 214 500 226 C 400 238 330 260 250 252 C 170 244 90 226 0 238 Z' fill='url(%23veil)'/%3E%3C/svg%3E");
+}
+
+
+/* =========================
+   13) Responsive (inchangé pour header/hero)
+   ========================= */
+@media (max-width: 900px){
+  /* Header */
+  .header-inner{
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+      "logo cta"
+      "nav nav"
+      "tagline tagline";
+  }
+
+  .main-nav{
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Tagline sous le menu
+   ⚠️ Note : on laisse volontairement les valeurs actuelles.
+   'margin: 10;' et 'padding: -10px ...' sont considérées invalides par le navigateur et sont donc ignorées.
+   (C’est pour ça que ça ne casse pas le rendu.)
+*/
+.header-tagline{
+    padding-bottom: 8px;
+    font-size: 11px;
+  }
+
+  /* Hero */
+  .hero{
+    padding: 34px 0 18px;
+  }
+
+  .hero-inner{
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .brand-visual{
+    width: 320px;
+  }
+
+  /* Sections */
+  .section-split{
+    grid-template-columns: 1fr;
+  }
+
+  .cards{
+    grid-template-columns: 1fr;
+  }
+
+  .team-cards{
+    grid-template-columns: 1fr;
+  }
+
+  .footer-inner{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+/* =========================
+   8) Cards (base)
+   ========================= */
+.cards{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+  margin-top: 22px;
+}
+
+.card{
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  box-shadow: var(--shadow);
+}
+
+.card h3{
+  font-size: 18px;
+  margin: 0 0 8px;
+}
+
+.card p{
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.75;
+  font-size: 15.5px;
+}
+
+/* =========================
+   WHY — Ethilia c’est
+   ========================= */
+.section-why{
+  position: relative;
+  padding: 70px 0;
+  overflow: hidden;
+}
+
+/* décor pastel */
+.section-why::before{
+  content:"";
+  position:absolute;
+  inset: -120px -120px auto -120px;
+  height: 320px;
+  background:
+    radial-gradient(circle at 18% 30%, rgba(232,199,191,.22), transparent 60%),
+    radial-gradient(circle at 55% 10%, rgba(111,127,107,.12), transparent 55%),
+    radial-gradient(circle at 85% 35%, rgba(243,238,232,.85), transparent 60%);
+  pointer-events:none;
+}
+
+.section-why h2{
+  position: relative;
+  display: inline-block;
+  margin: 0 0 34px;
+}
+
+.section-why h2::after{
+  content:"";
+  position:absolute;
+  left:-18px;
+  right:-18px;
+  bottom:-12px;
+  height: 14px;
+  background: rgba(111,127,107,.14);
+  border-radius: 999px;
+  z-index:-1;
+}
+
+/* cartes version “papier” */
+.section-why .card{
+  background: rgba(255,255,255,.45);
+  border: 1px solid rgba(0,0,0,.04);
+  border-radius: 26px;
+  box-shadow: 0 14px 32px rgba(0,0,0,.06);
+  backdrop-filter: blur(6px);
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+  position: relative;
+  text-align: center;
+}
+
+.section-why .card::before{
+  content:"";
+  position:absolute;
+  top:-80px;
+  left:-80px;
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(232,199,191,.22), transparent 60%);
+  border-radius: 50%;
+  pointer-events:none;
+}
+
+.section-why .card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 26px 60px rgba(0,0,0,.10);
+  background: rgba(255,255,255,.72);
+}
+
+/* illustrations (plus aucun cadre UI) */
+.section-why .card .icon{
+  width: 84px;
+  height: 84px;
+  margin-bottom: 14px;
+}
+
+.section-why .card .icon img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* responsive */
+@media (max-width: 900px){
+  .section-why{
+    padding: 54px 0;
+  }
+
+  .cards{
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+/* FIX — enlever les carrés derrière les icônes dans "Ethilia c’est"
+   (override volontaire de la base .card .icon, uniquement dans .section-why)
+*/
+.section-why .card .icon{
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  margin-left: auto;
+  margin-right: auto;
+
+  /* on garde la taille */
+  width: 84px;
+  height: 84px;
+  margin-bottom: 14px;
+  padding: 0;
+}
+.section-why .card .icon img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+/* =========================
+   DAILY — section stable & zoom-proof
+   ========================= */
+
+.section.section-daily{
+  position: relative;
+  overflow: hidden;
+  padding: 90px 0 140px;
+}
+
+/* =========================
+   FILIGRANE (indépendant du layout)
+   ========================= */
+
+.section.section-daily::before{
+  content:"";
+  position: absolute;
+  left: 50%;
+  top: -400px;
+
+  width: 2100px;
+  height: 2100px;
+
+  transform: translateX(-50%);
+  opacity: .53;
+
+  background: url("../assets/images/daily-illustration.png") no-repeat center / contain;
+  filter: saturate(1.05) contrast(1.1) brightness(.98);
+
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* =========================
+   CONTENU
+   ========================= */
+
+/* =========================
+   DAILY — conteneur centré & respirant
+   ========================= */
+
+.section.section-daily .container{
+  position: relative;
+  z-index: 1;
+
+  display: grid;
+  justify-items: center;
+
+  /* 👉 ESPACES VERTICAUX (faciles à ajuster) */
+  padding-top: 140px;
+  padding-bottom: 320px;
+}
+
+
+/* bloc texte : même largeur pour tout */
+.section.section-daily h2,
+.section.section-daily .section-intro,
+.section.section-daily .daily-steps{
+  width: min(720px, 90%);
+  text-align: left;
+  padding-left: 22px;
+}
+
+/* =========================
+   DAILY — Option A (timeline douce)
+   ========================= */
+
+.section.section-daily .daily-steps{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 26px;
+  margin-top: 30px;
+}
+
+.section.section-daily .daily-step{
+  position: relative;
+  padding-left: 22px;
+}
+
+.section.section-daily .daily-step::before{
+  content:"";
+  position: absolute;
+  left: 0;
+  top: .55em;
+  bottom: .25em;
+  width: 2px;
+  background: rgba(120,110,95,.14);
+  border-radius: 2px;
+}
+
+.section.section-daily .daily-step::after{
+  content:"";
+  position: absolute;
+  left: -4px;
+  top: .55em;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(120,110,95,.18);
+  box-shadow: 0 0 0 4px rgba(255,255,255,.65);
+}
+
+/* dernier item */
+.section.section-daily .daily-step:last-child::before{
+  bottom: 60%;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 900px){
+  .section.section-daily::before{
+    top: -120px;
+    width: 520px;
+    height: 520px;
+    opacity: .22;
+  }
+}
+
+@media (max-width: 600px){
+  .section.section-daily::before{
+    display: none;
+  }
+}
+
+
+/* Mobile : lisibilité */
+@media (max-width: 600px){
+  body::before{ display: none; }
+}
+/* =========================
+   TYPOGRAPHIE – VARIANTES
+   ========================= */
+
+/* Titres standards */
+.h-title{
+  font-family: var(--font-serif);
+  font-weight: 600;
+  letter-spacing: -0.4px;
+}
+
+/* Titre manuscrit (accent / signature) */
+.h-script{
+  font-family: var(--font-script);
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+/* Texte courant */
+.text{
+  font-family: var(--font-sans);
+}
+
+/* =========================
+   VISION — icônes cartes
+   ========================= */
+
+#vision .card{
+  text-align: center;
+}
+
+#vision .card .icon{
+  width: 84px;
+  height: 84px;
+  margin: 0 auto 14px;
+}
+
+#vision .card .icon img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+/* =========================
+   FILIGRANE — Ethilia c’est (FIX)
+   ========================= */
+
+.section-why .card{
+  position: relative;
+  overflow: hidden;
+}
+
+/* Le filigrane */
+.section-why .card::after{
+  content:"";
+  position:absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 220px;
+  height: 220px;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  opacity: .7;
+
+  pointer-events:none;
+  z-index: 0;              /* ✅ derrière */
+}
+
+/* Tout le contenu au-dessus */
+.section-why .card > *{
+  position: relative;
+  z-index: 1;              /* ✅ devant */
+}
+
+/* images par carte */
+.section-why .card:nth-child(1)::after{ background-image: url("../assets/images/icon1.png"); }
+.section-why .card:nth-child(2)::after{ background-image: url("../assets/images/icon2.png"); }
+.section-why .card:nth-child(3)::after{ background-image: url("../assets/images/icon3.png"); }
+/* =========================
+   FILIGRANE — Vision micro-crèche (FIX)
+   ========================= */
+
+#vision .card{
+  position: relative;
+  overflow: hidden;
+}
+
+#vision .card::after{
+  content:"";
+  position:absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 200px;
+  height: 200px;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  opacity: .7;
+
+  pointer-events:none;
+  z-index: 0;
+}
+
+#vision .card > *{
+  position: relative;
+  z-index: 1;
+}
+
+#vision .card:nth-child(1)::after{ background-image: url("../assets/images/icon4.png"); }
+#vision .card:nth-child(2)::after{ background-image: url("../assets/images/icon5.png"); }
+#vision .card:nth-child(3)::after{ background-image: url("../assets/images/icon6.png"); }
+/* =========================
+   FILIGRANE — En bref (micro-crèche)
+   ========================= */
+
+#en-bref .card{
+  position: relative;
+  overflow: hidden;
+}
+
+/* Filigrane */
+#en-bref .card::after{
+  content:"";
+  position:absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 540px;
+  height: 540px;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  opacity: .45; /* ajuste si trop fort */
+  pointer-events:none;
+  z-index: 0;
+}
+
+/* Texte au-dessus */
+#en-bref .card > *{
+  position: relative;
+  z-index: 1;
+}
+
+/* Attribution des images */
+#en-bref .card:nth-child(1)::after{
+  background-image: url("../assets/images/tache1.png");
+}
+
+#en-bref .card:nth-child(2)::after{
+  background-image: url("../assets/images/tache2.png");
+}
+
+#en-bref .card:nth-child(3)::after{
+  background-image: url("../assets/images/tache3.png");
+}
+
+#en-bref .card:nth-child(4)::after{
+  background-image: url("../assets/images/tache4.png");
+}

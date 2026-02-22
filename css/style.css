@@ -100,7 +100,7 @@ body::after{
   pointer-events: none;
   z-index: 0;
 
-  background: rgba(255, 250, 242, 0.55);
+  background: rgba(255, 250, 242, 0.65);
 }
 
 /* Assure que le contenu reste au-dessus */
@@ -1184,4 +1184,12 @@ h1, h2, h3{
 
 #en-bref .card:nth-child(4)::after{
   background-image: url("../assets/images/tache4.png");
+}
+
+.team-card .photo img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+  display: block;
 }
