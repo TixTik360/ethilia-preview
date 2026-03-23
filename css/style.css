@@ -899,7 +899,7 @@ h1, h2, h3 {
 
   /* --- Header --- */
   .site-header::before,
-  .site-header::after { display: none; } /* décors floraux masqués */
+  .site-header::after { display: none; }
 
   .header-inner {
     grid-template-columns: auto auto;
@@ -909,12 +909,10 @@ h1, h2, h3 {
     gap: 0;
   }
 
-  /* Tagline et nav masquées par défaut (gérées par le burger) */
   .header-tagline { display: none; }
+  .btn-preinscription { display: none; }
 
-  .btn-preinscription { display: none; } /* masqué, dupliqué dans le menu mobile */
-
-  /* Burger button */
+  /* Burger */
   .burger {
     grid-area: burger;
     justify-self: end;
@@ -938,21 +936,19 @@ h1, h2, h3 {
     transform-origin: center;
   }
 
-  /* Burger animé → croix */
   .burger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .burger.is-open span:nth-child(2) { opacity: 0; }
   .burger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-  /* Navigation mobile — panneau déroulant */
+  /* --- MENU MOBILE FIX --- */
   .main-nav {
     display: none;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch; /* 🔥 important */
     width: 100%;
     padding: 12px 18px 18px;
     gap: 4px;
     border-top: 1px solid var(--line);
-    /* reset pseudo-éléments (bandes haut/bas) */
     margin: 0;
   }
 
@@ -963,25 +959,26 @@ h1, h2, h3 {
     display: flex;
   }
 
+  /* 🔥 CORRECTION PRINCIPALE */
   .main-nav a {
+    width: 100%;
     padding: 12px 14px;
     font-size: 16px;
     border-radius: var(--radius);
     text-align: center;
   }
 
-  .main-nav a:hover { background: rgba(0,0,0,.04); }
+  .main-nav a:hover {
+    background: rgba(0,0,0,.04);
+  }
 
-  /* Bouton Contact dans la nav mobile */
+  /* Boutons dans menu */
   .site-header .btn-primary {
-    grid-area: unset;
-    justify-self: unset;
     width: 100%;
     text-align: center;
     margin-top: 8px;
   }
 
-  /* Bouton Pré-inscription dans le menu mobile */
   .nav-preinscription {
     display: block;
     width: 100%;
@@ -1016,43 +1013,15 @@ h1, h2, h3 {
     text-align: center;
   }
 
-  /* --- Sections génériques --- */
+  /* --- Sections --- */
   .section { padding: 40px 0; }
-
   .section h2 { font-size: 26px; }
 
-  /* --- Section Why --- */
-  .section-why { padding: 40px 0; }
-
   .cards { grid-template-columns: 1fr; gap: 14px; }
-
-  /* --- Section Daily --- */
-  .section.section-daily { padding: 40px 0 60px; }
-
-  .section.section-daily .container {
-    padding-top: 20px;
-    padding-bottom: 40px;
-  }
-
-  .section.section-daily h2,
-  .section.section-daily .section-intro,
-  .section.section-daily .daily-steps {
-    width: 100%;
-    padding-left: 14px;
-  }
-
-  .section.section-daily::before { display: none; }
-
-  /* --- Équipe --- */
   .team-cards { grid-template-columns: 1fr; gap: 14px; }
 
-  /* --- Divider --- */
   .section-divider { height: 80px; margin: 0 0 24px; }
 
-  /* --- Contact --- */
-  .contact-infos { text-align: center; }
-
-  /* --- Footer --- */
   .footer-inner {
     flex-direction: column;
     align-items: center;
@@ -1060,6 +1029,5 @@ h1, h2, h3 {
     gap: 10px;
   }
 
-  /* --- Typo globale mobile --- */
   body::before { display: none; }
 }
