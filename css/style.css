@@ -72,7 +72,7 @@ body::before {
 /* Voile crème global */
 body::after {
   content: "";
-  position: fixed;
+  position: absolute; /* était fixed */
   inset: 0;
   pointer-events: none;
   z-index: 0;
@@ -139,10 +139,15 @@ h1, h2, h3 {
   z-index: 50;
   background: rgba(255,250,242,.35);
   backdrop-filter: blur(6px);
-  border-bottom: 1px solid var(--line);
+  border-bottom: none; /* remplace la ligne existante */
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  transform: translateZ(0); /* force un nouveau contexte de rendu */
+  will-change: transform;
 }
 
 /* Décors floraux (coins gauche / droite) */
@@ -256,6 +261,9 @@ h1, h2, h3 {
   line-height: 0.3;
 }
 
+.burger {
+  display: none;
+}
 
 /* =========================
    5) Boutons
