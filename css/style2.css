@@ -831,7 +831,7 @@ h1, h2, h3 {
 
 
 /* =========================
-   15) Responsive — tablette (≤ 900px)
+   15) Responsive
    ========================= */
 @media (max-width: 900px) {
 
@@ -842,7 +842,6 @@ h1, h2, h3 {
       "logo cta"
       "nav nav"
       "tagline tagline";
-    padding: 6px 24px;
   }
 
   .main-nav {
@@ -883,175 +882,8 @@ h1, h2, h3 {
   }
 }
 
-
-/* =========================
-   16) Responsive — mobile (≤ 640px)
-   ========================= */
-@media (max-width: 640px) {
-
-  /* --- Header --- */
-  .site-header::before,
-  .site-header::after { display: none; } /* décors floraux masqués */
-
-  .header-inner {
-    grid-template-columns: auto auto;
-    grid-template-rows: auto;
-    grid-template-areas: "logo burger";
-    padding: 10px 18px;
-    gap: 0;
-  }
-
-  /* Tagline et nav masquées par défaut (gérées par le burger) */
-  .header-tagline { display: none; }
-
-  .btn-preinscription { display: none; } /* masqué, dupliqué dans le menu mobile */
-
-  /* Burger button */
-  .burger {
-    grid-area: burger;
-    justify-self: end;
-    align-self: center;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 8px;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
-
-  .burger span {
-    display: block;
-    width: 24px;
-    height: 2px;
-    background: var(--text);
-    border-radius: 2px;
-    transition: transform .25s ease, opacity .25s ease;
-    transform-origin: center;
-  }
-
-  /* Burger animé → croix */
-  .burger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-  .burger.is-open span:nth-child(2) { opacity: 0; }
-  .burger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-  /* Navigation mobile — panneau déroulant */
-  .main-nav {
-    display: none;
-    flex-direction: column;
-    align-items: stretch;
-    width: 100%;
-    padding: 12px 18px 18px;
-    gap: 4px;
-    border-top: 1px solid var(--line);
-    /* reset pseudo-éléments (bandes haut/bas) */
-    margin: 0;
-  }
-
-  .main-nav::before,
-  .main-nav::after { display: none; }
-
-  .main-nav.is-open {
-    display: flex;
-  }
-
-  .main-nav a {
-    padding: 12px 14px;
-    font-size: 16px;
-    border-radius: var(--radius);
-    text-align: left;
-  }
-
-  .main-nav a:hover { background: rgba(0,0,0,.04); }
-
-  /* Bouton Contact dans la nav mobile */
-  .site-header .btn-primary {
-    grid-area: unset;
-    justify-self: unset;
-    width: 100%;
-    text-align: center;
-    margin-top: 8px;
-  }
-
-  /* Bouton Pré-inscription dans le menu mobile */
-  .nav-preinscription {
-    display: block;
-    width: 100%;
-    text-align: center;
-    padding: 12px 14px;
-    border-radius: var(--radius);
-    background: var(--sage-soft);
-    color: rgba(255,255,255,.95);
-    font-weight: 600;
-    font-size: 16px;
-    margin-top: 4px;
-  }
-
-  /* --- Hero --- */
-  .hero-centered { padding: 32px 0 28px; }
-
-  .hero-title {
-    font-size: clamp(32px, 8vw, 44px);
-    text-align: center;
-  }
-
-  .hero-visual-centered { width: 100%; margin-bottom: 10px; }
-
-  .hero-text-centered {
-    max-width: 100%;
-    padding: 0 4px;
-  }
-
-  .hero-text-centered .hero-sub {
-    font-size: 15px;
-    line-height: 1.75;
-    text-align: center;
-  }
-
-  /* --- Sections génériques --- */
-  .section { padding: 40px 0; }
-
-  .section h2 { font-size: 26px; }
-
-  /* --- Section Why --- */
-  .section-why { padding: 40px 0; }
-
-  .cards { grid-template-columns: 1fr; gap: 14px; }
-
-  /* --- Section Daily --- */
-  .section.section-daily { padding: 40px 0 60px; }
-
-  .section.section-daily .container {
-    padding-top: 20px;
-    padding-bottom: 40px;
-  }
-
-  .section.section-daily h2,
-  .section.section-daily .section-intro,
-  .section.section-daily .daily-steps {
-    width: 100%;
-    padding-left: 14px;
-  }
+@media (max-width: 600px) {
+  body::before { display: none; }
 
   .section.section-daily::before { display: none; }
-
-  /* --- Équipe --- */
-  .team-cards { grid-template-columns: 1fr; gap: 14px; }
-
-  /* --- Divider --- */
-  .section-divider { height: 80px; margin: 0 0 24px; }
-
-  /* --- Contact --- */
-  .contact-infos { text-align: center; }
-
-  /* --- Footer --- */
-  .footer-inner {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 10px;
-  }
-
-  /* --- Typo globale mobile --- */
-  body::before { display: none; }
 }
