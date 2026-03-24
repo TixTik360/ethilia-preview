@@ -367,27 +367,35 @@
 </footer>
 
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   const burger = document.getElementById('burger');
-  const nav    = document.getElementById('main-nav');
+  const nav = document.getElementById('main-nav');
 
-  burger.addEventListener('click', (e) => {
-    e.stopPropagation();
-    const isOpen = nav.classList.toggle('is-open');
-    burger.classList.toggle('is-open', isOpen);
-    burger.setAttribute('aria-expanded', isOpen);
-    burger.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
-  });
+  if (burger && nav) {
+    burger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = nav.classList.toggle('is-open');
+      burger.classList.toggle('is-open', isOpen);
+      burger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      burger.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
+    });
 
-  // Fermer le menu si on clique en dehors
-  document.addEventListener('click', (e) => {
-    if (!burger.contains(e.target) && !nav.contains(e.target)) {
-      nav.classList.remove('is-open');
-      burger.classList.remove('is-open');
-      burger.setAttribute('aria-expanded', 'false');
-      burger.setAttribute('aria-label', 'Ouvrir le menu');
-    }
-  });
+    document.addEventListener('click', (e) => {
+      if (!burger.contains(e.target) && !nav.contains(e.target)) {
+        nav.classList.remove('is-open');
+        burger.classList.remove('is-open');
+        burger.setAttribute('aria-expanded', 'false');
+        burger.setAttribute('aria-label', 'Ouvrir le menu');
+      }
+    });
 
-  // Fermer le menu sur resize vers desktop
-  window.ad
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 640) {
+        nav.classList.remove('is-open');
+        burger.classList.remove('is-open');
+        burger.setAttribute('aria-expanded', 'false');
+        burger.setAttribute('aria-label', 'Ouvrir le menu');
+      }
+    });
+  }
+</script>
