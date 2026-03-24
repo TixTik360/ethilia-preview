@@ -371,7 +371,8 @@
   const burger = document.getElementById('burger');
   const nav    = document.getElementById('main-nav');
 
-  burger.addEventListener('click', () => {
+  burger.addEventListener('click', (e) => {
+    e.stopPropagation();
     const isOpen = nav.classList.toggle('is-open');
     burger.classList.toggle('is-open', isOpen);
     burger.setAttribute('aria-expanded', isOpen);
